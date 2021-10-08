@@ -14,7 +14,7 @@ List<MarketPlaceModel> featuredServicesList = [
   MarketPlaceModel(
       id: 1,
       image: 'assets/images/marketplace/Capture5.jpg',
-      description: 'Description...'),
+      description: 'Description here...'),
   MarketPlaceModel(
       id: 2,
       image: 'assets/images/marketplace/Capture6.jpg',

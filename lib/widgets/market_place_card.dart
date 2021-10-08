@@ -15,7 +15,7 @@ class MarketPlaceCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 6.5, vertical: 5.0),
       decoration: const BoxDecoration(
         color: Colors.transparent,
-      ),
+      ), //hello
       child: Container(
         height: 180,
         width: 160,
