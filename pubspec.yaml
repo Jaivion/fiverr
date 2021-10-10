@@ -59,19 +59,11 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/icons/
+    - assets/icons/marketplace/
     - assets/images/splash/
     - assets/images/backgrounds/
     - assets/images/backgrounds/backgroundimg1.jpg
     - assets/images/backgrounds/backgroundimg2.jpg
-    - assets/images/marketplace/
-    - assets/images/marketplace/Capture5.jpg
-    - assets/images/marketplace/Capture6.jpg
-    - assets/images/marketplace/Capture7.jpg
-    - assets/images/marketplace/Capture8.jpg
-    - assets/images/marketplace/Capture9.jpg
-    - assets/images/marketplace/Capture10.jpg
-    - assets/images/marketplace/Capture11.jpg
-    - assets/images/marketplace/Capture12.jpg
     - assets/images/services/
     - assets/images/services/boycut.jpg
     - assets/images/services/girlcut.jpg

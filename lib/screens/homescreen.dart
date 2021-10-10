@@ -159,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 const SizedBox(
                                   height: 10,
-                                ),
+                                ), 
                                 Container(
                                   height: 200,
                                   child: ListView.builder(

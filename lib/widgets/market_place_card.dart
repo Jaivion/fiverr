@@ -1,7 +1,5 @@
 import 'package:fiverr/models/market_place_model.dart';
-//import 'package:fiverr/models/popular_services_model.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter_svg/svg.dart';
 
 class MarketPlaceCard extends StatelessWidget {
   final MarketPlaceModel featuredService;
@@ -47,7 +45,7 @@ class MarketPlaceCard extends StatelessWidget {
                   image: ExactAssetImage(featuredService.image!),
                   fit: BoxFit.cover,
                 ),
-                color: Colors.grey[300],
+                color: const Color(0xffffffff),
                 borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10)),
@@ -67,16 +65,17 @@ class MarketPlaceCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(5),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
-                  // Text(
-                  //   featuredService.description!,
-                  //   overflow: TextOverflow.ellipsis,
-                  //   style: TextStyle(
-                  //       color: Colors.grey[800],
-                  //       fontSize: 14,
-                  //       fontWeight: FontWeight.bold),
-                  // )
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    featuredService.description!,
+                    //textAlign: TextAlign.center,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        color: Colors.grey[800],
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold),
+                  )
                 ],
               ),
             ),

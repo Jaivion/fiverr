@@ -20,7 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           children: [
             Container(
-              height: size.height * 0.20,
+              height: size.height * 0.22,
               width: size.width,
               decoration: const BoxDecoration(
                 color: Color(0xff999999),
@@ -29,8 +29,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 15.0, vertical: 20.0),
+                      padding: const EdgeInsets.only(top: 30,left: 15,right: 15,bottom: 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
