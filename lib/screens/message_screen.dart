@@ -32,6 +32,6 @@ class _MessageScreenState extends State<MessageScreen> {
         ],
       ),
       body: const SignupHelper(),
-    );
+    ); 
   }
 }

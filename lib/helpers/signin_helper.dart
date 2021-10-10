@@ -105,6 +105,7 @@ class SigninHelper extends StatelessWidget {
             decoration: const InputDecoration(
               labelText: "Email or username",
               fillColor: Colors.green,
+              
               //labelStyle: TextStyle(fontSize: 20, color: Colors.green),
               focusColor: Colors.green,
               focusedBorder: UnderlineInputBorder(
@@ -123,7 +124,7 @@ class SigninHelper extends StatelessWidget {
                 fillColor: Colors.green,
                 label: Text("Password"),
                 //labelText: 'Your',
-                labelStyle: TextStyle(fontSize: 20),
+                //labelStyle: TextStyle(fontSize: 20),
                 //isCollapsed: true,
                 focusColor: Colors.green,
                 focusedBorder: UnderlineInputBorder(

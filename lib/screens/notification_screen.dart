@@ -1,4 +1,4 @@
-import 'package:fiverr/helpers/signin_helper.dart';
+import 'package:fiverr/helpers/signup_helper.dart';
 import 'package:flutter/material.dart';
 
 class MyNotificationScreen extends StatefulWidget {
@@ -31,7 +31,7 @@ class _MyNotificationScreenState extends State<MyNotificationScreen> {
         //   ),
         // ],
       ),
-      body:  const SigninHelper(),
+      body: const SignupHelper(),
     );
   }
 }

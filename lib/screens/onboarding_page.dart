@@ -2,8 +2,6 @@ import 'package:fiverr/helpers/signin_helper.dart';
 import 'package:fiverr/screens/bottomnav.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:fiverr/helpers/routes.dart';
-//import 'package:get/get.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key}) : super(key: key);
@@ -119,7 +117,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
           Positioned(
               left: 0,
               right: 0,
-              bottom: 5,
+              bottom: 2,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Container(
@@ -205,7 +203,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
-                            top: 5, left: 10, right: 10, bottom: 0),
+                            top: 5, left: 10, right: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [

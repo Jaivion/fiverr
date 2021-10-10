@@ -31,107 +31,58 @@ class SignupHelper extends StatelessWidget {
             softWrap: true,
             style: TextStyle(
               fontSize: 14,
-              fontWeight: FontWeight.bold,
+              //fontWeight: FontWeight.bold,
               color: Colors.black54,
             ),
           ),
           const SizedBox(
             height: 20,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Material(
-                borderRadius: BorderRadius.circular(4),
-                color: Colors.indigo[700],
-                child: InkWell(
-                  onTap: () => {},
-                  child: Container(
-                    height: 40,
-                    width: 175,
-                    alignment: Alignment.center,
-                    child: const Text(
-                      "Facebook",
-                      maxLines: 1,
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                  ),
-                ),
-              ),
-              const Spacer(),
-              Material(
-                borderRadius: BorderRadius.circular(4),
-                color: Colors.indigoAccent[700],
-                child: InkWell(
-                  onTap: () => {},
-                  child: Container(
-                    height: 40,
-                    width: 175,
-                    alignment: Alignment.center,
-                    child: const Text(
-                      "Google",
-                      maxLines: 1,
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text("or sign in with email",
+          Material(
+            borderRadius: BorderRadius.circular(4),
+            color: Colors.indigo[700],
+            child: InkWell(
+              onTap: () => {},
+              child: Container(
+                height: 40,
+                width: double.maxFinite,
+                alignment: Alignment.center,
+                child: const Text(
+                  "Continue with Facebook",
+                  maxLines: 1,
                   style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  )),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: "Email or username",
-              fillColor: Colors.green,
-              //labelStyle: TextStyle(fontSize: 20, color: Colors.green),
-              focusColor: Colors.green,
-              focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.green)),
-              enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.black54)),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+              ),
             ),
           ),
           const SizedBox(
             height: 20,
           ),
-          TextFormField(
-            obscureText: true,
-            decoration: const InputDecoration(
-                //filled: true,
-                fillColor: Colors.green,
-                label: Text("Password"),
-                //labelText: 'Your',
-                labelStyle: TextStyle(fontSize: 20),
-                //isCollapsed: true,
-                focusColor: Colors.green,
-                focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.green)),
-                enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black54))),
+          Material(
+            borderRadius: BorderRadius.circular(4),
+            color: Colors.indigoAccent[700],
+            child: InkWell(
+              onTap: () => {},
+              child: Container(
+                height: 40,
+                width: double.maxFinite,
+                alignment: Alignment.center,
+                child: const Text(
+                  "Continue with Google",
+                  maxLines: 1,
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+              ),
+            ),
           ),
           const SizedBox(
-            height: 40,
+            height: 20,
           ),
           Material(
             borderRadius: BorderRadius.circular(4),
@@ -143,10 +94,10 @@ class SignupHelper extends StatelessWidget {
                 width: double.maxFinite,
                 alignment: Alignment.center,
                 child: const Text(
-                  "Continue",
+                  "Sign Up with Email",
                   maxLines: 1,
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
@@ -157,10 +108,30 @@ class SignupHelper extends StatelessWidget {
             height: 20,
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Text(
-                "Forgot Password",
+                "By joining you agree to Fiverr's ",
+                style: TextStyle(
+                  color: Colors.black54,
+                ),
+              ),
+              Text(
+                "Terms of Services",
+                style: TextStyle(
+                  color: Color(0xff1dbf73),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: const [
+              Text(
+                "Sign In",
                 style: TextStyle(
                     color: Color(0xff1dbf73), fontWeight: FontWeight.bold),
               )
