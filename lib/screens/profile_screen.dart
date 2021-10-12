@@ -1,3 +1,4 @@
+import 'package:fiverr/screens/insideProfile/saved_gigs.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -29,7 +30,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 30,left: 15,right: 15,bottom: 20),
+                      padding: const EdgeInsets.only(
+                          top: 30, left: 15, right: 15, bottom: 20),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
@@ -107,24 +109,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: Column(
                 children: const [
                   CustomListTile(
-                      myicon: Icons.luggage_rounded,
-                      mytext: "Bookings & Appointments"),
+                      myicon: Icons.favorite_border_outlined,
+                      mytext: "Saved Gigs"),
                   CustomListTile(
-                      myicon: Icons.local_offer, mytext: "Packages & Offers"),
+                      myicon: Icons.inbox_outlined, mytext: "My Interests"),
                   CustomListTile(
-                      myicon: Icons.favorite_border_rounded,
-                      mytext: "Favourite Barbers & Salon"),
+                      myicon: Icons.assignment_outlined,
+                      mytext: "Manage orders"),
                   CustomListTile(
-                      myicon: Icons.wallet_travel, mytext: "Payment Methods"),
+                      myicon: Icons.description_outlined,mytext: "Post a request"),
                   CustomListTile(
-                      myicon: Icons.article_sharp, mytext: "Payment History"),
+                      myicon: Icons.border_color_outlined, mytext: "Manage requests"),
                   CustomListTile(
-                      myicon: Icons.keyboard_alt, mytext: "Change Password"),
+                      myicon: Icons.payment_outlined,mytext: "payments"),
                   CustomListTile(
                       myicon: Icons.supervisor_account,
-                      mytext: "Invite Friends"),
-                  CustomListTile(myicon: Icons.error, mytext: "About us"),
-                  CustomListTile(myicon: Icons.logout, mytext: "Logout"),
+                      mytext: "Invite friends"),
+                  CustomListTile(
+                      myicon: Icons.error, mytext: "Become a seller"),
+                  CustomListTile(myicon: Icons.support_outlined, mytext: "Support"),
                 ],
               ),
             ),
@@ -136,7 +139,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
 }
 
 class CustomListTile extends StatelessWidget {
-  const CustomListTile({Key? key, required this.myicon, required this.mytext})
+  const CustomListTile(
+      {Key? key,
+      required this.myicon,
+      required this.mytext,
+      GestureTapCallback? onTap})
       : super(key: key);
   final IconData myicon;
   final String mytext;
@@ -152,8 +159,8 @@ class CustomListTile extends StatelessWidget {
               children: [
                 Icon(
                   myicon, //icondate
-                  size: 28,
-                  color: Colors.green[400],
+                  size: 24,
+                  color: Colors.grey[400],
                 ),
                 const SizedBox(width: 10),
                 Text(
@@ -165,17 +172,17 @@ class CustomListTile extends StatelessWidget {
                 ),
                 const Spacer(),
                 Icon(
-                  Icons.arrow_right_sharp,
-                  size: 20,
-                  color: Colors.blueGrey[700],
+                  Icons.chevron_right,
+                  size: 26,
+                  color: Colors.grey[400],
                 )
               ],
             ),
           ),
-          Center(
-            child: Container(
-                height: 1, width: size.width * 0.95, color: Colors.grey[850]),
-          ),
+          // Center(
+          //   child: Container(
+          //       height: 1, width: size.width * 0.95, color: Colors.grey[850]),
+          // ),
         ],
       ),
     );
