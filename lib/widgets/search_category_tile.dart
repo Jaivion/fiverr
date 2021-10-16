@@ -1,5 +1,6 @@
 import 'package:fiverr/models/categories_category_model.dart';
 import 'package:fiverr/screens/insideHomeScreenCard.dart/card_screen.dart';
+import 'package:fiverr/screens/sub_category.dart';
 import 'package:flutter/material.dart';
 
 class SearchCategoryTile extends StatelessWidget {
@@ -12,12 +13,12 @@ class SearchCategoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return InkWell(
-       onTap: () {
-            Navigator.push( 
-              context,
-              MaterialPageRoute(builder: (context) => CardScreen()),
-            );
-          },
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SubCategoryScreen()),
+        );
+      },
       child: Container(
         width: size.width,
         child: Column(
@@ -28,7 +29,8 @@ class SearchCategoryTile extends StatelessWidget {
                 children: [
                   Center(
                     child: Icon(
-                      categories.icon!,color: Colors.blueGrey[800],
+                      Icons.home,
+                      color: Colors.blueGrey[800],
                       size: 50,
                     ),
                   ),
@@ -40,11 +42,15 @@ class SearchCategoryTile extends StatelessWidget {
                     children: [
                       Text(
                         categories.title!,
-                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blueGrey[800]),
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blueGrey[800]),
                       ),
                       Text(
-                        categories.description!,
-                        style: TextStyle(fontSize: 16,color: Colors.blueGrey[700]),
+                        "categories.description",
+                        style: TextStyle(
+                            fontSize: 16, color: Colors.blueGrey[700]),
                       )
                     ],
                   )

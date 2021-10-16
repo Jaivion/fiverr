@@ -1,5 +1,6 @@
 import 'package:fiverr/models/categories_interests_model.dart';
 import 'package:fiverr/screens/insideHomeScreenCard.dart/card_screen.dart';
+import 'package:fiverr/screens/sub_category.dart';
 import 'package:flutter/material.dart';
 
 class SearchInterestTile extends StatelessWidget {
@@ -15,7 +16,7 @@ class SearchInterestTile extends StatelessWidget {
       onTap: () {
             Navigator.push( 
               context,
-              MaterialPageRoute(builder: (context) => CardScreen()),
+              MaterialPageRoute(builder: (context) => const SubCategoryScreen()),
             );
           },
       child: Container(

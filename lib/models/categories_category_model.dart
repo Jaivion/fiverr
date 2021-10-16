@@ -3,62 +3,62 @@ import 'package:flutter/material.dart';
 
 class CategoriesCategoryModel {
   final int? id;
-  final IconData? icon;
+  //final IconData? icon;
   final String? title;
-  final String? description;
+  //final String? description;
 
   CategoriesCategoryModel({
     this.id,
-    this.icon,
+    //this.icon,
     this.title,
-    this.description,
+    //this.description,
   });
 }
 
 List<CategoriesCategoryModel> searchCategoryList = [
   CategoriesCategoryModel(
-      id: 1,
-      icon: Icons.home_outlined,
-      title: "Home",
-      description: 'Description here...'),
+    id: 1,
+    //icon: Icons.home_outlined,
+    title: "Home",
+  ),
   CategoriesCategoryModel(
-      id: 2,
-      title: "Person",
-      icon: Icons.person_outline,
-      description: 'Description...'),
+    id: 2,
+    title: "Person",
+    //icon: Icons.person_outline,
+  ),
   CategoriesCategoryModel(
-      id: 3,
-      title: "Person",
-      icon: Icons.person_outline,
-      description: 'Description...'),
+    id: 3,
+    title: "Person",
+    //icon: Icons.person_outline,
+  ),
   CategoriesCategoryModel(
-      id: 4,
-      title: "Person",
-      icon: Icons.person_outline,
-      description: 'Description...'),
+    id: 4,
+    title: "Person",
+    //icon: Icons.person_outline,
+  ),
   CategoriesCategoryModel(
-      id: 5,
-      title: "Person",
-      icon: Icons.person_outline,
-      description: 'Description...'),
+    id: 5,
+    title: "Person",
+    //icon: Icons.person_outline,
+  ),
   CategoriesCategoryModel(
-      id: 6,
-      title: "Person",
-      icon: Icons.person_outline,
-      description: 'Description...'),
+    id: 6,
+    title: "Person",
+    //icon: Icons.person_outline,
+  ),
   CategoriesCategoryModel(
-      id: 7,
-      title: "Person",
-      icon: Icons.person_outline,
-      description: 'Description...'),
+    id: 7,
+    title: "Person",
+    //icon: Icons.person_outline,
+  ),
   CategoriesCategoryModel(
-      id: 8,
-      title: "Person",
-      icon: Icons.person_outline,
-      description: 'Description...'),
+    id: 8,
+    title: "Person",
+    //icon: Icons.person_outline,
+  ),
   CategoriesCategoryModel(
-      id: 9,
-      title: "Person",
-      icon: Icons.person_outline,
-      description: 'Description...'),
+    id: 9,
+    title: "Person",
+    //icon: Icons.person_outline,
+  ),
 ];
