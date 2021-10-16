@@ -1,4 +1,5 @@
 import 'package:fiverr/models/categories_category_model.dart';
+import 'package:fiverr/screens/insideHomeScreenCard.dart/card_screen.dart';
 import 'package:flutter/material.dart';
 
 class SearchCategoryTile extends StatelessWidget {
@@ -10,47 +11,55 @@ class SearchCategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Container(
-      width: size.width,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Center(
-                  child: Icon(
-                    categories.icon!,color: Colors.blueGrey[800],
-                    size: 50,
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      categories.title!,
-                      style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blueGrey[800]),
+    return InkWell(
+       onTap: () {
+            Navigator.push( 
+              context,
+              MaterialPageRoute(builder: (context) => CardScreen()),
+            );
+          },
+      child: Container(
+        width: size.width,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  Center(
+                    child: Icon(
+                      categories.icon!,color: Colors.blueGrey[800],
+                      size: 50,
                     ),
-                    Text(
-                      categories.description!,
-                      style: TextStyle(fontSize: 16,color: Colors.blueGrey[700]),
-                    )
-                  ],
-                )
-              ],
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        categories.title!,
+                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blueGrey[800]),
+                      ),
+                      Text(
+                        categories.description!,
+                        style: TextStyle(fontSize: 16,color: Colors.blueGrey[700]),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Center(
-            child: Container(
-                height: 1, width: size.width, color: Colors.grey[400]),
-          ),
-        ],
+            const SizedBox(
+              height: 10,
+            ),
+            Center(
+              child: Container(
+                  height: 1, width: size.width, color: Colors.grey[400]),
+            ),
+          ],
+        ),
       ),
     );
   }

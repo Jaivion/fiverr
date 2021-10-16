@@ -94,7 +94,9 @@ class _SearchScreenState extends State<SearchScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const SizedBox(height: 20,),
+                          const SizedBox(
+                            height: 20,
+                          ),
                           Text(
                             "Your interest",
                             style: TextStyle(
@@ -102,14 +104,18 @@ class _SearchScreenState extends State<SearchScreen> {
                                 fontWeight: FontWeight.bold,
                                 color: Colors.blueGrey[800]),
                           ),
-                          const SizedBox(height: 10,),
+                          const SizedBox(
+                            height: 10,
+                          ),
                           Text(
                             "Choose your interests for a better discovery experience.",
                             style: TextStyle(
                                 fontSize: 16, color: Colors.blueGrey[700]),
                             softWrap: true,
                           ),
-                          const SizedBox(height: 20,),
+                          const SizedBox(
+                            height: 20,
+                          ),
                           Material(
                             borderRadius: BorderRadius.circular(4),
                             color: const Color(0xff1dbf73),
@@ -130,7 +136,9 @@ class _SearchScreenState extends State<SearchScreen> {
                               ),
                             ),
                           ),
-                          const SizedBox(height: 40,),
+                          const SizedBox(
+                            height: 40,
+                          ),
                           Text(
                             "You may also like",
                             style: TextStyle(
@@ -138,7 +146,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                 fontWeight: FontWeight.bold,
                                 color: Colors.blueGrey[800]),
                           ),
-                          
                         ],
                       ),
                     ),
@@ -150,10 +157,12 @@ class _SearchScreenState extends State<SearchScreen> {
                         //height: 200,
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
+                          
                           itemCount: searchInterestList.length,
                           itemBuilder: (context, index) {
                             CategoriesInterestModel interestsData =
                                 searchInterestList[index];
+
                             return SearchInterestTile(
                               interest: interestsData,
                             );

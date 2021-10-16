@@ -1,4 +1,8 @@
+import 'package:fiverr/helpers/onboarding_buyer_card.dart';
+import 'package:fiverr/helpers/onboarding_seller_card.dart';
 import 'package:fiverr/helpers/signin_helper.dart';
+import 'package:fiverr/helpers/signup_helper.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:fiverr/screens/bottomnav.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +15,14 @@ class OnboardingPage extends StatefulWidget {
 }
 
 class _OnboardingPageState extends State<OnboardingPage> {
-  void _showSignin(BuildContext ctx) {
+  void _showSignin(BuildContext ctx,int index) {
+    int _currentBtmSheetIndex = index;
+  const tabs = [
+    SigninHelper(),
+    SignupHelper(),
+    BuyerCardScreen(),
+    SellerCardScreen(),
+  ];
     showModalBottomSheet(
         isScrollControlled: true,
         elevation: 10,
@@ -23,7 +34,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               color: Colors.white54,
               alignment: Alignment.bottomCenter,
               //child: const Text('Breathe in... Breathe out...'),
-              child: const SigninHelper(),
+              child: tabs[_currentBtmSheetIndex],
             ));
   }
 
@@ -55,20 +66,26 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       padding: const EdgeInsets.only(left: 10),
                       child: Row(
                         children: [
-                          const Text(
-                            "fiverr",
-                            style: TextStyle(
-                                fontSize: 35,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
-                          ),
                           Text(
-                            ".",
-                            style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.green[400]),
+                            "fiverr",
+                            style: GoogleFonts.lato(
+                              textStyle: const TextStyle(
+                                  fontSize: 35,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            // style: TextStyle(
+                            //     fontSize: 35,
+                            //     fontWeight: FontWeight.bold,
+                            //     color: Colors.white),
                           ),
+                          Text(".",
+                              style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.green[400]),
+                              )),
                         ],
                       ),
                     ),
@@ -128,87 +145,93 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            alignment: Alignment.bottomCenter,
-                            height: 130,
-                            width: size.width * 0.42,
-                            decoration: const BoxDecoration(
-                                boxShadow: <BoxShadow>[
-                                  BoxShadow(
-                                    color: Colors.black38,
-                                    offset: Offset(1.0, 1.0),
-                                    blurRadius: 2.0,
-                                  ),
-                                ],
-                                image: DecorationImage(
-                                  image: ExactAssetImage(
-                                      'assets/images/backgrounds/features-v2-img1.jpg'),
-                                  fit: BoxFit.cover,
-                                ),
-                                //color: Colors.green,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8))),
+                          InkWell(
+                            onTap: () => _showSignin(context,2),
                             child: Container(
-                              width: double.maxFinite,
+                              alignment: Alignment.bottomCenter,
+                              height: 130,
+                              width: size.width * 0.42,
                               decoration: const BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(8),
-                                      bottomRight: Radius.circular(8))),
-                              child: Text(
-                                "Become a Freelancer",
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.grey[850]),
-                                textAlign: TextAlign.center,
+                                  boxShadow: <BoxShadow>[
+                                    BoxShadow(
+                                      color: Colors.black38,
+                                      offset: Offset(1.0, 1.0),
+                                      blurRadius: 2.0,
+                                    ),
+                                  ],
+                                  image: DecorationImage(
+                                    image: ExactAssetImage(
+                                        'assets/images/backgrounds/features-v2-img1.jpg'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                  //color: Colors.green,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8))),
+                              child: Container(
+                                width: double.maxFinite,
+                                decoration: const BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8))),
+                                child: Text(
+                                  "Become a Freelancer",
+                                  style: TextStyle(
+                                      fontSize: 14, color: Colors.grey[850]),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
                             ),
                           ),
                           //const Spacer(),
-                          Container(
-                            alignment: Alignment.bottomCenter,
-                            height: 130,
-                            width: size.width * 0.42,
-                            decoration: const BoxDecoration(
-                                boxShadow: <BoxShadow>[
-                                  BoxShadow(
-                                    color: Colors.black38,
-                                    offset: Offset(1.0, 1.0),
-                                    blurRadius: 2.0,
-                                  ),
-                                ],
-                                image: DecorationImage(
-                                  image: ExactAssetImage(
-                                      'assets/images/backgrounds/features-v2-img2.jpg'),
-                                  fit: BoxFit.cover,
-                                ),
-                                //color: Colors.green,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(8))),
+                          InkWell(
+                            onTap: () => _showSignin(context,3),
                             child: Container(
-                              width: double.maxFinite,
+                              alignment: Alignment.bottomCenter,
+                              height: 130,
+                              width: size.width * 0.42,
                               decoration: const BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(8),
-                                      bottomRight: Radius.circular(8))),
-                              child: Text(
-                                "Join Our Community",
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.grey[850]),
-                                textAlign: TextAlign.center,
+                                  boxShadow: <BoxShadow>[
+                                    BoxShadow(
+                                      color: Colors.black38,
+                                      offset: Offset(1.0, 1.0),
+                                      blurRadius: 2.0,
+                                    ),
+                                  ],
+                                  image: DecorationImage(
+                                    image: ExactAssetImage(
+                                        'assets/images/backgrounds/features-v2-img2.jpg'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                  //color: Colors.green,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8))),
+                              child: Container(
+                                width: double.maxFinite,
+                                decoration: const BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(8),
+                                        bottomRight: Radius.circular(8))),
+                                child: Text(
+                                  "Join Our Community",
+                                  style: TextStyle(
+                                      fontSize: 14, color: Colors.grey[850]),
+                                  textAlign: TextAlign.center,
+                                ),
                               ),
                             ),
                           ),
                         ],
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                            top: 5, left: 10, right: 10),
+                        padding:
+                            const EdgeInsets.only(top: 5, left: 10, right: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             TextButton(
-                                onPressed: () => _showSignin(context),
+                                onPressed: () => _showSignin(context,0),
                                 child: const Text(
                                   "Sign In",
                                   style: TextStyle(

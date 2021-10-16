@@ -10,14 +10,14 @@ class PopularServiceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 250,
       padding: const EdgeInsets.symmetric(horizontal: 6.5, vertical: 5.0),
       decoration: const BoxDecoration(
         color: Colors.transparent,
       ),
       child: Container(
-        height: 180,
-        width: 160,
+        height: 250,
+        width: 170,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           boxShadow: const <BoxShadow>[
@@ -32,8 +32,8 @@ class PopularServiceCard extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: 160,
-              width: 160,
+              height: 150,
+              width: 170,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: ExactAssetImage(popularService.image!),
@@ -45,30 +45,74 @@ class PopularServiceCard extends StatelessWidget {
                     topRight: Radius.circular(10)),
               ),
             ),
-            Text(
-              popularService.description!,
-              style: TextStyle(
-                  color: Colors.grey[800],
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold),
-            ),
             Padding(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
-                  // Text(
-                  //   popularService.description!,
-                  //   overflow: TextOverflow.ellipsis,
-                  //   style: TextStyle(
-                  //     color: Colors.grey[800],
-                  //     fontSize: 14,
-                  //     fontWeight: FontWeight.bold
-                  //   ),
-                  // )
+                children: [
+                  Icon(
+                    Icons.star,
+                    color: Colors.orange[300],
+                    size: 16,
+                  ),
+                  Text(
+                    " 4.9 ",
+                    style: TextStyle(
+                      color: Colors.orange[300],
+                    ),
+                  ),
+                  Text(
+                    " (5) ",
+                    style: TextStyle(
+                      color: Colors.grey[350],
+                    ),
+                  ),
+                  const Spacer(),
+                  Icon(
+                    Icons.favorite_border_outlined,
+                    color: Colors.grey[350],
+                  )
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    popularService.description!,
+                    maxLines: 3,
+                    style: TextStyle(
+                      color: Colors.grey[800],
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                alignment: Alignment.bottomRight,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    const Text("From "),
+                    Text(
+                      "\$",
+                      style:
+                          TextStyle(fontSize: 16, color: Colors.blueGrey[850]),
+                    ),
+                    Text(
+                      "79",
+                      style:
+                          TextStyle(fontSize: 16, color: Colors.blueGrey[850]),
+                    )
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),

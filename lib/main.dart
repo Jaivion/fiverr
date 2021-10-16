@@ -1,9 +1,8 @@
 import 'dart:async';
-
 import 'package:fiverr/screens/bottomnav.dart';
 import 'package:fiverr/screens/onboarding_page.dart';
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -67,17 +66,25 @@ class _SplashState extends State<Splash> {
               children: [
                 Text(
                   "fiverr",
-                  style: TextStyle(
-                      fontSize: 60,
-                      color: Colors.grey[850],
-                      fontWeight: FontWeight.bold),
+                  style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                        fontSize: 60,
+                        color: Colors.grey[850],
+                        fontWeight: FontWeight.bold),
+                  ),
+                  // TextStyle(
+                  //     fontSize: 60,
+                  //     color: Colors.grey[850],
+                  //     fontWeight: FontWeight.bold)
                 ),
                 Text(
                   ".",
-                  style: TextStyle(
-                      fontSize: 60,
-                      color: Colors.green[400],
-                      fontWeight: FontWeight.bold),
+                  style: GoogleFonts.lato(
+                    textStyle: TextStyle(
+                        fontSize: 60,
+                        color: Colors.lightGreen[600],
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),

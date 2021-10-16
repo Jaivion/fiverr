@@ -1,9 +1,7 @@
-//import 'package:fiverr/models/popular_services_model.dart';
 import 'package:fiverr/models/market_place_model.dart';
 import 'package:fiverr/models/popular_services_model.dart';
 import 'package:fiverr/widgets/market_place_card.dart';
 import 'package:fiverr/widgets/popular_service_card.dart';
-//import 'package:fiverr/widgets/popular_service_card.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -46,35 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
           color: Color(0xfcfcfcfc),
         ),
         child: Column(children: [
-          // Container(
-          //   padding:
-          //       const EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 10),
-          //   width: double.maxFinite,
-          //   height: 100,
-          //   child: Row(
-          //     children: [
-          //       const Text(
-          //         "fiverr",
-          //         style: TextStyle(
-          //             fontSize: 30,
-          //             fontWeight: FontWeight.bold,
-          //             color: Colors.black54),
-          //       ),
-          //       Text(
-          //         ".",
-          //         style: TextStyle(
-          //             fontSize: 30,
-          //             fontWeight: FontWeight.bold,
-          //             color: Colors.green[400]),
-          //       ),
-          //       const Spacer(),
-          //       const Icon(
-          //         Icons.widgets,
-          //         color: Colors.black54,
-          //       ),
-          //     ],
-          //   ),
-          // ),
           Expanded(
             child: Container(
               child: SingleChildScrollView(
@@ -159,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 const SizedBox(
                                   height: 10,
-                                ), 
+                                ),
                                 Container(
                                   height: 200,
                                   child: ListView.builder(
@@ -221,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 5,
                                 ),
                                 Container(
-                                  height: 220,
+                                  height: 260,
                                   child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
                                     itemCount: popularServicesList.length,
