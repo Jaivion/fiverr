@@ -24,7 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text(
           "fiverr.",
           style: TextStyle(
-              fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black87),
+              fontSize: 30,
+              //fontFamily: "Ludo",
+              fontWeight: FontWeight.bold,
+              color: Colors.black87),
         ),
         actions: const [
           Icon(

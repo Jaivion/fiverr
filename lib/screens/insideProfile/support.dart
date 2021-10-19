@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Payments extends StatefulWidget {
-  const Payments({Key? key}) : super(key: key);
+class Support extends StatefulWidget {
+  const Support({Key? key}) : super(key: key);
 
   @override
-  _PaymentsState createState() => _PaymentsState();
+  _SupportState createState() => _SupportState();
 }
 
-class _PaymentsState extends State<Payments> {
+class _SupportState extends State<Support> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,38 +20,42 @@ class _PaymentsState extends State<Payments> {
           color: Colors.grey[850],
         ),
         title: const Text(
-          "Payments",
+          "Support",
           style: TextStyle(color: Colors.black87),
         ),
         backgroundColor: const Color(0xffffffff),
       ),
       body: Container(
         child: Column(
-          children: [
+          children: const [
             ListTile(
-              title: const Text("Currency"),
-              trailing: Text(
-                "\$USD",
-                style: TextStyle(color: Colors.green[400]),
-              ),
+              title: Text("Help & Education"),
             ),
-            const Divider(
+            Divider(
               height: 1,
               indent: 15,
               endIndent: 2,
             ),
-            const ListTile(
-              title: Text("PayPal single click"),
+            ListTile(
+              title: Text("Leave feedback"),
             ),
-            const Divider(
+            Divider(
               height: 1,
               indent: 15,
               endIndent: 2,
             ),
-            const ListTile(
-              title: Text("Personal balance"),
+            ListTile(
+              title: Text("Forum"),
             ),
-            const Divider(
+            Divider(
+              height: 1,
+              indent: 15,
+              endIndent: 2,
+            ),
+            ListTile(
+              title: Text("Blog"),
+            ),
+            Divider(
               height: 1,
               indent: 15,
               endIndent: 2,

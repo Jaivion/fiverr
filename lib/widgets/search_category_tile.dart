@@ -29,7 +29,7 @@ class SearchCategoryTile extends StatelessWidget {
                 children: [
                   Center(
                     child: Icon(
-                      Icons.home,
+                      Icons.home_outlined,
                       color: Colors.blueGrey[800],
                       size: 50,
                     ),
@@ -44,12 +44,14 @@ class SearchCategoryTile extends StatelessWidget {
                         categories.title!,
                         style: TextStyle(
                             fontSize: 20,
+                            fontFamily: "Futura",
                             fontWeight: FontWeight.bold,
                             color: Colors.blueGrey[800]),
                       ),
                       Text(
                         "categories.description",
                         style: TextStyle(
+                          //fontFamily: "Franklin gothic",
                             fontSize: 16, color: Colors.blueGrey[700]),
                       )
                     ],
@@ -70,3 +72,5 @@ class SearchCategoryTile extends StatelessWidget {
     );
   }
 }
+
+

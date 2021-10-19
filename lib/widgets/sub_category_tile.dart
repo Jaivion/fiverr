@@ -28,6 +28,7 @@ class SubCategoryTile extends StatelessWidget {
                   Text(
                     categories.title!, //textdata
                     style: TextStyle(
+                      fontFamily: "Futura",
                       fontSize: 16,
                       color: Colors.grey[850],
                     ),

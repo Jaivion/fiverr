@@ -41,11 +41,11 @@ class SearchInterestTile extends StatelessWidget {
                     children: [
                       Text(
                         interest.title!,
-                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blueGrey[800]),
+                        style: TextStyle(fontSize: 20,fontFamily: "Futura",fontWeight: FontWeight.bold,color: Colors.blueGrey[800]),
                       ),
                       Text(
                         interest.description!,
-                        style: TextStyle(fontSize: 16,color: Colors.blueGrey[700]),
+                        style: TextStyle(fontSize: 16,fontFamily: "Futura",color: Colors.blueGrey[700]),
                       )
                     ],
                   )
