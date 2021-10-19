@@ -1,5 +1,5 @@
 import 'package:fiverr/models/market_place_model.dart';
-import 'package:fiverr/screens/insideHomeScreenCard.dart/card_screen.dart';
+import 'package:fiverr/screens/insideHomeScreenCard.dart/service_card_screen.dart';
 import 'package:flutter/material.dart';
 
 class RectangleCard extends StatelessWidget {
