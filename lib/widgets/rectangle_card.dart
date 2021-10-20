@@ -1,5 +1,4 @@
-import 'package:fiverr/models/market_place_model.dart';
-import 'package:fiverr/screens/insideHomeScreenCard.dart/service_card_screen.dart';
+import 'package:fiverr/screens/insideHomeScreenCard.dart/service_screen.dart';
 import 'package:flutter/material.dart';
 
 class RectangleCard extends StatelessWidget {
@@ -18,12 +17,12 @@ class RectangleCard extends StatelessWidget {
       ), //hello
       child: Material(
         child: InkWell(
-          // onTap: () {
-          //   Navigator.push(
-          //     context,
-          //     MaterialPageRoute(builder: (context) => CardScreen()),
-          //   );
-          // },
+          onTap: () {
+            Navigator.push( 
+              context,
+              MaterialPageRoute(builder: (context) => const ServiceScreen()),
+            );
+          },
           child: Container(
             height: size.height * 0.18,
             width: size.width * 0.95,

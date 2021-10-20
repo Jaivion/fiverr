@@ -1,7 +1,4 @@
 import 'package:fiverr/models/categories_category_model.dart';
-import 'package:fiverr/models/categories_interests_model.dart';
-import 'package:fiverr/widgets/search_category_tile.dart';
-import 'package:fiverr/widgets/search_interest_tile.dart';
 import 'package:fiverr/widgets/sub_category_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -24,22 +21,33 @@ class _SubCategoryScreenState extends State<SubCategoryScreen> {
             elevation: 3.0,
             shadowColor: Colors.grey[400],
             //title: Icon(Icons.arrow_back),
-            actions: const [
-              SizedBox(
+            actions: [
+              const SizedBox(
                 width: 15,
               ),
-              Icon(
-                Icons.arrow_back,
-                color: Colors.black87,
-                size: 26,
+              IconButton(
+                icon: const Icon(
+                  Icons.arrow_back,
+                  color: Colors.black87,
+                  size: 26,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                color: Colors.grey[850],
               ),
-              Spacer(),
-              Icon(
+              // Icon(
+              //   Icons.arrow_back,
+              //   color: Colors.black87,
+              //   size: 26,
+              // ),
+              const Spacer(),
+              const Icon(
                 Icons.search,
                 color: Colors.black87,
                 size: 26,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 15,
               ),
             ],

@@ -1,3 +1,4 @@
+import 'package:fiverr/helpers/onboarding_buyer_card.dart';
 import 'package:flutter/material.dart';
 
 class MyInterests extends StatefulWidget {
@@ -25,7 +26,7 @@ class _MyInterestsState extends State<MyInterests> {
         ),
         backgroundColor: const Color(0xffffffff),
       ),
-      body: Container(),
+      body: const BuyerCardScreen(),
     );
   }
 }

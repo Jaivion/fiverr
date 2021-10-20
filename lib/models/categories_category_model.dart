@@ -1,6 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
 class CategoriesCategoryModel {
   final int? id;
   //final IconData? icon;

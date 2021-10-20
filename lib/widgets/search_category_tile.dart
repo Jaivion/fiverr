@@ -1,5 +1,4 @@
 import 'package:fiverr/models/categories_category_model.dart';
-import 'package:fiverr/screens/insideHomeScreenCard.dart/service_card_screen.dart';
 import 'package:fiverr/screens/sub_category.dart';
 import 'package:flutter/material.dart';
 

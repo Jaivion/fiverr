@@ -1,5 +1,7 @@
 import 'package:fiverr/models/market_place_model.dart';
 import 'package:fiverr/screens/insideHomeScreenCard.dart/service_card_screen.dart';
+import 'package:fiverr/utils/custom_page_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MarketPlaceCard extends StatelessWidget {
@@ -17,10 +19,15 @@ class MarketPlaceCard extends StatelessWidget {
       ), //hello
       child: Material(
         child: InkWell(
+          // onTap: () {
+          //   Navigator.push(
+          //     context,
+          //     MaterialPageRoute(builder: (context) => CardScreen()),
+          //   );
+          // },
           onTap: () {
-            Navigator.push( 
-              context,
-              MaterialPageRoute(builder: (context) => CardScreen()),
+            Navigator.of(context).push(
+              CustomPageRoute(child: CardScreen()),
             );
           },
           child: Container(
@@ -78,5 +85,3 @@ class MarketPlaceCard extends StatelessWidget {
     );
   }
 }
-
-

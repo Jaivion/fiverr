@@ -1,10 +1,8 @@
 import 'package:fiverr/models/market_place_model.dart';
-import 'package:fiverr/screens/bottomnav.dart';
 import 'package:fiverr/widgets/chips_widgets.dart';
 import 'package:fiverr/widgets/rectangle_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CardScreen extends StatefulWidget {
   @override
@@ -152,7 +150,7 @@ class _CardScreenState extends State<CardScreen> {
                       );
                     },
                   ),
-                ),
+                ), 
                 Expanded(
                   child: Container(
                     //height: 200,
@@ -196,19 +194,5 @@ class _CardScreenState extends State<CardScreen> {
     //           ))
     //       .toList(),
     // );
-  }
-}
-
-class FilterCard extends StatefulWidget {
-  const FilterCard({Key? key}) : super(key: key);
-
-  @override
-  _FilterCardState createState() => _FilterCardState();
-}
-
-class _FilterCardState extends State<FilterCard> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

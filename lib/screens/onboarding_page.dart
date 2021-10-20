@@ -16,7 +16,7 @@ class OnboardingPage extends StatefulWidget {
 }
 
 class _OnboardingPageState extends State<OnboardingPage> {
-  void _showSignin(BuildContext ctx, int index) {
+  void _showBottomSheet(BuildContext ctx, int index) {
     int _currentBtmSheetIndex = index;
     const tabs = [
       SigninHelper(),
@@ -44,6 +44,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     var size = MediaQuery.of(context).size;
 
     return Material(
+      
       child: Container(
         height: size.height,
         width: size.width,
@@ -150,7 +151,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           InkWell(
-                            onTap: () => _showSignin(context, 2),
+                            onTap: () => _showBottomSheet(context, 2),
                             child: Container(
                               alignment: Alignment.bottomCenter,
                               height: 130,
@@ -158,9 +159,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               decoration: const BoxDecoration(
                                   boxShadow: <BoxShadow>[
                                     BoxShadow(
-                                      color: Colors.black38,
-                                      offset: Offset(1.0, 1.0),
-                                      blurRadius: 2.0,
+                                      color: Colors.black45,
+                                      offset: Offset(2.0, 3.0),
+                                      blurRadius: 3.0,
                                     ),
                                   ],
                                   image: DecorationImage(
@@ -191,7 +192,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           ),
                           //const Spacer(),
                           InkWell(
-                            onTap: () => _showSignin(context, 3),
+                            splashColor: Colors.red,
+                            onTap: () => _showBottomSheet(context, 3),
                             child: Container(
                               alignment: Alignment.bottomCenter,
                               height: 130,
@@ -199,9 +201,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               decoration: const BoxDecoration(
                                   boxShadow: <BoxShadow>[
                                     BoxShadow(
-                                      color: Colors.black38,
-                                      offset: Offset(1.0, 1.0),
-                                      blurRadius: 2.0,
+                                      color: Colors.black45,
+                                      offset: Offset(2.0, 3.0),
+                                      blurRadius: 3.0,
                                     ),
                                   ],
                                   image: DecorationImage(
@@ -233,13 +235,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         ],
                       ),
                       Padding(
-                        padding:
-                            const EdgeInsets.only(top: 5, left: 10, right: 10),
+                        padding: const EdgeInsets.only(
+                            top: 5, left: 10, right: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             TextButton(
-                                onPressed: () => _showSignin(context, 0),
+                                onPressed: () => _showBottomSheet(context, 0),
                                 child: const Text(
                                   "Sign In",
                                   style: TextStyle(
@@ -248,22 +250,38 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                       color: Colors.green,
                                       fontSize: 16),
                                 )),
-                            InkWell(
-                              onTap: () => Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const BottomNav())),
-                              //Get.to(BottomNav());
+                            TextButton(
+                                onPressed: () =>
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const BottomNav())),
+                                child: const Text(
+                                  "Skip",
+                                  style: TextStyle(
+                                      fontFamily: "Futura",
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.green,
+                                      fontSize: 16),
+                                )),
+                            // InkWell(
+                            //   splashColor: Colors.grey,
+                            // onTap: () => Navigator.pushReplacement(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => const BottomNav())),
+                            //Get.to(BottomNav());
 
-                              child: const Text(
-                                "Skip",
-                                style: TextStyle(
-                                    fontFamily: "Futura",
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.green,
-                                    fontSize: 16),
-                              ),
-                            )
+                            //   child: const Text(
+                            //     "Skip",
+                            //     style: TextStyle(
+                            //         fontFamily: "Futura",
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.green,
+                            //         fontSize: 16),
+                            //   ),
+                            // )
                           ],
                         ),
                       )

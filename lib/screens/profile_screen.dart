@@ -1,5 +1,4 @@
-import 'package:fiverr/helpers/signin_helper.dart';
-import 'package:fiverr/helpers/signup_helper.dart';
+import 'package:fiverr/screens/aboutus.dart';
 import 'package:fiverr/screens/insideProfile/become_a_seller.dart';
 import 'package:fiverr/screens/insideProfile/manage_oreders.dart';
 import 'package:fiverr/screens/insideProfile/manage_requests.dart';
@@ -8,6 +7,12 @@ import 'package:fiverr/screens/insideProfile/payments.dart';
 import 'package:fiverr/screens/insideProfile/post_a_request.dart';
 import 'package:fiverr/screens/insideProfile/saved_gigs.dart';
 import 'package:fiverr/screens/insideProfile/support.dart';
+import 'package:fiverr/screens/privacy_policy.dart';
+import 'package:fiverr/screens/settings_screen.dart';
+import 'package:fiverr/screens/sign_in.dart';
+import 'package:fiverr/screens/sign_up.dart';
+import 'package:fiverr/screens/term_of_services.dart';
+import 'package:fiverr/utils/custom_page_route.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -127,10 +132,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                           const Spacer(),
                           isLoggedIn
-                              ? Icon(
-                                  Icons.settings_outlined,
-                                  size: 40,
-                                  color: Colors.blueGrey[400],
+                              ? InkWell(
+                                  // onTap: () {
+                                  //   Navigator.push(
+                                  //     context,
+                                  //     MaterialPageRoute(
+                                  //         builder: (context) =>
+                                  //             const SettingsScreen()),
+                                  //   );
+                                  // },
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                      CustomPageRoute(
+                                          child: const SettingsScreen()),
+                                    );
+                                  },
+                                  child: Icon(
+                                    Icons.settings_outlined,
+                                    size: 40,
+                                    color: Colors.blueGrey[400],
+                                  ),
                                 )
                               : const SizedBox(
                                   width: 5,
@@ -147,7 +168,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             isLoggedIn
                 ?
-                //if logged..........................................
+                //if logged in ..........................................
                 Expanded(
                     child: SingleChildScrollView(
                       child: Column(
@@ -169,11 +190,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Material(
                             child: InkWell(
                               splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => const SavedGigs()),
+                              //   );
+                              // },
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const SavedGigs()),
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const SavedGigs()),
                                 );
                               },
                               child: const CustomListTile(
@@ -184,11 +210,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Material(
                             child: InkWell(
                               splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) =>
+                              //             const MyInterests()),
+                              //   );
+                              // },
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const MyInterests()),
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const MyInterests(),direction: AxisDirection.down),
                                 );
                               },
                               child: const CustomListTile(
@@ -213,11 +245,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Material(
                             child: InkWell(
                               splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) =>
+                              //             const ManageOrders()),
+                              //   );
+                              // },
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const ManageOrders()),
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const ManageOrders()),
                                 );
                               },
                               child: const CustomListTile(
@@ -228,11 +266,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Material(
                             child: InkWell(
                               splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) =>
+                              //             const PostRequest()),
+                              //   );
+                              // },
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const PostRequest()),
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const PostRequest(),direction: AxisDirection.down),
                                 );
                               },
                               child: const CustomListTile2(
@@ -243,12 +287,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Material(
                             child: InkWell(
                               splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) =>
+                              //             const ManageRequests()),
+                              //   );
+                              // },
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const ManageRequests()),
+                                Navigator.of(context).push(
+                                  CustomPageRoute(
+                                      child: const ManageRequests()),
                                 );
                               },
                               child: const CustomListTile(
@@ -313,11 +363,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Material(
                             child: InkWell(
                               splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => const Payments()),
+                              //   );
+                              // },
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const Payments()),
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const Payments()),
                                 );
                               },
                               child: const CustomListTile(
@@ -328,7 +383,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Material(
                             child: InkWell(
                               splashColor: Colors.grey,
-                              onTap: (){},
+                              onTap: () {},
                               child: const CustomListTile2(
                                   myicon: Icons.supervisor_account,
                                   mytext: "Invite friends"),
@@ -337,25 +392,37 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Material(
                             child: InkWell(
                               splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) =>
+                              //             const BecomeSeller()),
+                              //   );
+                              // },
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const BecomeSeller()),
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const BecomeSeller()),
                                 );
                               },
                               child: const CustomListTile(
-                                  myicon: Icons.error, mytext: "Become a seller"),
+                                  myicon: Icons.error,
+                                  mytext: "Become a seller"),
                             ),
                           ),
                           Material(
                             child: InkWell(
                               splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => const Support()),
+                              //   );
+                              // },
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const Support()),
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const Support()),
                                 );
                               },
                               child: const CustomListTile(
@@ -377,16 +444,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         children: [
                           Material(
                             child: InkWell(
-                              onTap: (){},
                               splashColor: Colors.grey,
                               // onTap: () {
                               //   Navigator.push(
                               //     context,
                               //     MaterialPageRoute(
-                              //         builder: (context) => const SignupHelper()),
+                              //         builder: (context) => const SignUp()),
                               //   );
                               // },
-                              
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const SignUp()),
+                                );
+                              },
                               child: ListTile(
                                 title: Row(
                                   children: [
@@ -409,32 +479,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               ),
                             ),
                           ),
-                          InkWell(
-                            // onTap: () {
-                            //   Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => const SigninHelper()),
-                            //   );
-                            // },
-                            child: ListTile(
-                              title: Row(
-                                children: [
-                                  Icon(
-                                    Icons.shortcut_outlined,
-                                    size: 24,
-                                    color: Colors.grey[400],
-                                  ),
-                                  const SizedBox(width: 10),
-                                  Text(
-                                    "Sign in",
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.grey[850],
+                          Material(
+                            child: InkWell(
+                              splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => const SignIn()),
+                              //   );
+                              // },
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const SignIn()),
+                                );
+                              },
+                              child: ListTile(
+                                title: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.shortcut_outlined,
+                                      size: 24,
+                                      color: Colors.grey[400],
                                     ),
-                                  ),
-                                  const Spacer(),
-                                ],
+                                    const SizedBox(width: 10),
+                                    Text(
+                                      "Sign in",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.grey[850],
+                                      ),
+                                    ),
+                                    const Spacer(),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -452,33 +530,108 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
-                          const CustomListTile(
-                              myicon: Icons.assignment_outlined,
-                              mytext: "My interests"),
-                          const CustomListTile2(
-                              myicon: Icons.description_outlined,
-                              mytext: "Language"),
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const SignupHelper()),
-                              );
-                            },
-                            child: const CustomListTile2(
-                                myicon: Icons.monetization_on,
-                                mytext: "Currency"),
+                          Material(
+                            child: InkWell(
+                              splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) =>
+                              //             const MyInterests()),
+                              //   );
+                              // },
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const MyInterests(),direction: AxisDirection.down),
+                                );
+                              },
+                              child: const CustomListTile(
+                                  myicon: Icons.assignment_outlined,
+                                  mytext: "My interests"),
+                            ),
                           ),
-                          const CustomListTile(
-                              myicon: Icons.border_color_outlined,
-                              mytext: "About"),
-                          const CustomListTile(
-                              myicon: Icons.payment_outlined,
-                              mytext: "Terms of Services"),
-                          const CustomListTile2(
-                              myicon: Icons.supervisor_account,
-                              mytext: "Privacy Policy"),
+                          Material(
+                            child: InkWell(
+                              splashColor: Colors.grey,
+                              onTap: () {},
+                              child: const CustomListTile2(
+                                  myicon: Icons.description_outlined,
+                                  mytext: "Language"),
+                            ),
+                          ),
+                          Material(
+                            child: InkWell(
+                              splashColor: Colors.grey,
+                              onTap: () {},
+                              child: const CustomListTile2(
+                                  myicon: Icons.monetization_on,
+                                  mytext: "Currency"),
+                            ),
+                          ),
+                          Material(
+                            child: InkWell(
+                              splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => const AboutUs()),
+                              //   );
+                              // },
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const AboutUs()),
+                                );
+                              },
+                              child: const CustomListTile(
+                                  myicon: Icons.border_color_outlined,
+                                  mytext: "About"),
+                            ),
+                          ),
+                          Material(
+                            child: InkWell(
+                              splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) =>
+                              //             const TermOfServices()),
+                              //   );
+                              // },
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  CustomPageRoute(
+                                      child: const TermOfServices()),
+                                );
+                              },
+                              child: const CustomListTile(
+                                  myicon: Icons.payment_outlined,
+                                  mytext: "Terms of Services"),
+                            ),
+                          ),
+                          Material(
+                            child: InkWell(
+                              splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) =>
+                              //             const PrivacyPolicy()),
+                              //   );
+                              // },
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const PrivacyPolicy()),
+                                );
+                              },
+                              child: const CustomListTile2(
+                                  myicon: Icons.supervisor_account,
+                                  mytext: "Privacy Policy"),
+                            ),
+                          ),
                           const SizedBox(
                             height: 50,
                           )

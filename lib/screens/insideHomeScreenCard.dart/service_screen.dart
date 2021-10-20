@@ -1,7 +1,3 @@
-import 'package:fiverr/models/market_place_model.dart';
-
-import 'package:fiverr/widgets/chips_widgets.dart';
-import 'package:fiverr/widgets/rectangle_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';

@@ -1,7 +1,9 @@
+import 'package:fiverr/helpers/search_bottom_sheet.dart';
 import 'package:fiverr/models/market_place_model.dart';
 import 'package:fiverr/models/popular_services_model.dart';
 import 'package:fiverr/widgets/market_place_card.dart';
 import 'package:fiverr/widgets/popular_service_card.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,6 +14,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  void _showSearchSheet(BuildContext ctx, int index) {
+    int _currentBtmSheetIndex = index;
+    const tabs = [
+      SearchBottomSheet(),
+    ];
+    showModalBottomSheet(
+        isScrollControlled: true,
+        elevation: 10,
+        backgroundColor: Colors.white,
+        context: ctx,
+        builder: (ctx) => Container(
+              // width: double.infinity,
+              // height: double.infinity,
+              color: Colors.white54,
+              alignment: Alignment.bottomCenter,
+              //child: const Text('Breathe in... Breathe out...'),
+              child: tabs[_currentBtmSheetIndex],
+            ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,13 +51,20 @@ class _HomeScreenState extends State<HomeScreen> {
               fontWeight: FontWeight.bold,
               color: Colors.black87),
         ),
-        actions: const [
-          Icon(
-            Icons.widgets,
-            color: Colors.black87,
-            size: 26,
+        actions: [
+          Material(
+            child: InkWell(
+              onTap: () {
+                //BottomNav.setIndex(2);
+              },
+              child: const Icon(
+                Icons.widgets,
+                color: Colors.black87,
+                size: 26,
+              ),
+            ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 15,
           ),
         ],
@@ -54,39 +83,63 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(children: [
                     Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Container(
-                        height: 50,
-                        width: double.maxFinite,
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                          color: Colors.black45,
-                        )),
-                        child: TextField(
-                          //style: theme.textTheme.bodyText1,
-                          keyboardType: TextInputType.text,
-                          autofocus: false,
-                          autocorrect: false,
-                          decoration: InputDecoration(
-                            //fillColor: theme.accentColor,
-                            border: InputBorder.none,
-                            enabledBorder: InputBorder.none,
-                            focusedBorder: InputBorder.none,
-                            hintText: 'Search services',
-                            //hintStyle: theme.textTheme.subtitle2,
-                            prefixIcon: IconButton(
-                              icon: const Icon(
-                                Icons.search,
-                                size: 20,
-                              ),
-                              onPressed: () {
-                                //showSearch(context: context, delegate: SearchPage());
-                              },
+                      child: Material(
+                        child: InkWell(
+                          onTap: ()=> _showSearchSheet(context, 0),
+                          child: Container(
+                            height: 50,
+                            width: double.maxFinite,
+                            decoration: BoxDecoration(
+                                border: Border.all(
+                              color: Colors.grey.shade300,
+                            )),
+                            child: Row(
+                              children: [
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                Icon(
+                                  Icons.search,
+                                  size: 25,
+                                  color: Colors.grey[500],
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                Text(
+                                  "Search services",
+                                  style: TextStyle(color: Colors.grey[500]),
+                                ),
+                              ],
                             ),
-//                            focusColor: kBackgroundColor2,
-                            contentPadding: const EdgeInsets.symmetric(
-                              horizontal: 20.0,
-                              vertical: 15.0,
-                            ),
+                            //                         child: TextField(
+                            //                           //style: theme.textTheme.bodyText1,
+                            //                           keyboardType: TextInputType.text,
+                            //                           autofocus: false,
+                            //                           autocorrect: false,
+                            //                           decoration: InputDecoration(
+                            //                             //fillColor: theme.accentColor,
+                            //                             border: InputBorder.none,
+                            //                             enabledBorder: InputBorder.none,
+                            //                             focusedBorder: InputBorder.none,
+                            //                             hintText: 'Search services',
+                            //                             //hintStyle: theme.textTheme.subtitle2,
+                            //                             prefixIcon: IconButton(
+                            //                               icon: const Icon(
+                            //                                 Icons.search,
+                            //                                 size: 20,
+                            //                               ),
+                            //                               onPressed: () {
+                            //                                 //showSearch(context: context, delegate: SearchPage());
+                            //                               },
+                            //                             ),
+                            // //                            focusColor: kBackgroundColor2,
+                            //                             contentPadding: const EdgeInsets.symmetric(
+                            //                               horizontal: 20.0,
+                            //                               vertical: 15.0,
+                            //                             ),
+                            //                           ),
+                            //                         ),
                           ),
                         ),
                       ),
@@ -98,8 +151,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         children: [
                           Container(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 10.0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10.0),
                             child: Row(
                               children: [
                                 Text(
@@ -159,8 +212,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         children: [
                           Container(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 10.0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10.0),
                             child: Row(
                               children: [
                                 Text(
@@ -198,10 +251,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                     scrollDirection: Axis.horizontal,
                                     itemCount: popularServicesList.length,
                                     itemBuilder: (context, index) {
-                                      PopularServicesModel popularServiceList =
+                                      PopularServicesModel
+                                          popularServiceList =
                                           popularServicesList[index];
                                       return PopularServiceCard(
-                                          popularService: popularServiceList);
+                                          popularService:
+                                              popularServiceList);
                                     },
                                   ),
                                 )

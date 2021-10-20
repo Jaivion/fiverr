@@ -1,5 +1,4 @@
 import 'package:fiverr/helpers/choice_chips.dart';
-import 'package:fiverr/models/choice_chip_data.dart';
 import 'package:flutter/material.dart';
 class CHoiceChips extends StatefulWidget {
   const CHoiceChips({ Key? key, }) : super(key: key);

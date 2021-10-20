@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:fiverr/screens/bottomnav.dart';
 import 'package:fiverr/screens/onboarding_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -53,6 +54,19 @@ class _SplashState extends State<Splash> {
       routes: {
         '/bottomNav': (BuildContext context) => const BottomNav(),
       },
+      // onGenerateRoute: (RouteSettings settings) {
+      //   switch (settings.name) {
+      //     case 'homeScreen':
+      //       return CupertinoPageRoute(
+      //           builder: (_) => const HomeScreen(), settings: settings);
+      //     case 'messageScreen':
+      //       return CupertinoPageRoute(
+      //           builder: (_) => const MessageScreen(), settings: settings);
+      //     case 'cardScreen':
+      //       return CupertinoPageRoute(
+      //           builder: (_) => CardScreen(), settings: settings);
+      //   }
+      // },
       home: Material(
         child: Container(
           width: double.infinity,

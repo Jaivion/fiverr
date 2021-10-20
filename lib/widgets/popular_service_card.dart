@@ -1,7 +1,7 @@
 import 'package:fiverr/models/popular_services_model.dart';
 import 'package:fiverr/screens/insideHomeScreenCard.dart/service_screen.dart';
+import 'package:fiverr/utils/custom_page_route.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter_svg/svg.dart';
 
 class PopularServiceCard extends StatelessWidget {
   final PopularServicesModel popularService;
@@ -12,10 +12,15 @@ class PopularServiceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: InkWell(
+        //  onTap: () {
+        //     Navigator.push( 
+        //       context,
+        //       MaterialPageRoute(builder: (context) => const ServiceScreen()),
+        //     );
+        //   },
          onTap: () {
-            Navigator.push( 
-              context,
-              MaterialPageRoute(builder: (context) => const ServiceScreen()),
+            Navigator.of(context).push(
+              CustomPageRoute(child: ServiceScreen()),
             );
           },
         child: Container(

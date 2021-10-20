@@ -5,7 +5,7 @@ class SellerCardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+   // var size = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.only(left: 10, right: 10),
       child: Column(
