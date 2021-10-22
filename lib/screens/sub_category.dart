@@ -1,3 +1,4 @@
+import 'package:fiverr/helpers/search_bottom_sheet.dart';
 import 'package:fiverr/models/categories_category_model.dart';
 import 'package:fiverr/widgets/sub_category_tile.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,29 @@ class SubCategoryScreen extends StatefulWidget {
 }
 
 class _SubCategoryScreenState extends State<SubCategoryScreen> {
+  void _showSearchSheet(BuildContext ctx, int index) {
+    int _currentBtmSheetIndex = index;
+    // void btmIndex() {
+    //   BottomNav.setIndex(2);
+    // }
+    const tabs = [
+      SearchBottomSheet(),
+    ];
+    showModalBottomSheet(
+        isScrollControlled: true,
+        elevation: 10,
+        backgroundColor: Colors.white,
+        context: ctx,
+        builder: (ctx) => Container(
+              // width: double.infinity,
+              // height: double.infinity,
+              color: Colors.white54,
+              alignment: Alignment.bottomCenter,
+              //child: const Text('Breathe in... Breathe out...'),
+              child: tabs[_currentBtmSheetIndex],
+            ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -42,10 +66,13 @@ class _SubCategoryScreenState extends State<SubCategoryScreen> {
               //   size: 26,
               // ),
               const Spacer(),
-              const Icon(
-                Icons.search,
-                color: Colors.black87,
-                size: 26,
+              InkWell(
+                onTap: () => _showSearchSheet(context, 0),
+                child: const Icon(
+                  Icons.search,
+                  color: Colors.black87,
+                  size: 26,
+                ),
               ),
               const SizedBox(
                 width: 15,
@@ -72,15 +99,17 @@ class _SubCategoryScreenState extends State<SubCategoryScreen> {
                             Text(
                               "User",
                               style: TextStyle(
-                                  fontFamily: "Tofino",
+                                  fontFamily: "workSans",
+                                  //fontFamily: "Tofino",
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 18,
+                                  fontSize: 22,
                                   color: Colors.grey[800]),
                             ),
                             Text(
                               "Welcome to Fiverr",
                               style: TextStyle(
-                                  fontFamily: "Tofino",
+                                  fontFamily: "workSans",
+                                  //fontFamily: "Tofino",
                                   //fontWeight: FontWeight.bold,
                                   fontSize: 14,
                                   color: Colors.grey[700]),

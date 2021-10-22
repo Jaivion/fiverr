@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ffi';
 
 import 'package:fiverr/screens/homescreen.dart';
@@ -7,6 +8,7 @@ import 'package:fiverr/screens/profile_screen.dart';
 import 'package:fiverr/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({Key? key}) : super(key: key);
@@ -25,11 +27,75 @@ class _BottomNavState extends State<BottomNav> {
     MyNotificationScreen(),
     ProfileScreen(),
   ];
-  void setIndex(int value) {
-    setState(() {
-      _currentIndex = value;
-    });
+
+bool dialogShown = false;
+  @override
+  void initState() {
+    super.initState();
+    if (dialogShown == false) {
+      setState(() {
+        dialogShown = true;
+      });
+
+      Timer(const Duration(seconds: 3), () => {openDialog()});
+    }
   }
+  void openDialog() {
+    //await Future.delayed(const Duration(seconds: 1));
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: const Color(0xff1dbf73),
+            title: const Center(
+              child: Text("Hi! Welcome",
+                  style: TextStyle(
+                    color: Colors.white,
+                  )),
+            ),
+            contentPadding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+            content: Container(
+              color: Colors.white,
+              width: 300,
+              height: 200,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    child: Icon(
+                      Icons.face_outlined,
+                      color: Color(0xff1dbf73),
+                      size: 80,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                    child: Text(
+                      "Great!",
+                      style: TextStyle(fontSize: 20),
+                      softWrap: true,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+
+  // void setIndex(int value) {
+  //   setState(() {
+  //     _currentIndex = value;
+  //   });
+  // }
+  // VoidCallback callBack(int value) {
+  //   setState(() {
+  //     _currentIndex = value;
+  //   });
+  // }
   //final CupertinoTabController _controller = CupertinoTabController();
 
   @override

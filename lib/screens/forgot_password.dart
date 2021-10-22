@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AboutUs extends StatefulWidget {
-  const AboutUs({Key? key}) : super(key: key);
+class ForgotPassword extends StatefulWidget {
+  const ForgotPassword({Key? key}) : super(key: key);
 
   @override
-  _AboutUsState createState() => _AboutUsState();
+  _ForgotPasswordState createState() => _ForgotPasswordState();
 }
 
-class _AboutUsState extends State<AboutUs> {
+class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +20,7 @@ class _AboutUsState extends State<AboutUs> {
           color: Colors.grey[850],
         ),
         title: const Text(
-          "About us",
+          "Forgot Password",
           style: TextStyle(fontFamily: "workSans", color: Colors.black87),
         ),
         backgroundColor: const Color(0xffffffff),

@@ -1,5 +1,6 @@
 import 'package:fiverr/models/categories_interests_model.dart';
 import 'package:fiverr/screens/sub_category.dart';
+import 'package:fiverr/utils/custom_page_route.dart';
 import 'package:flutter/material.dart';
 
 class SearchInterestTile extends StatelessWidget {
@@ -12,12 +13,17 @@ class SearchInterestTile extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return InkWell(
+      // onTap: () {
+      //   Navigator.push(
+      //     context,
+      //     MaterialPageRoute(builder: (context) => const SubCategoryScreen()),
+      //   );
+      // },
       onTap: () {
-            Navigator.push( 
-              context,
-              MaterialPageRoute(builder: (context) => const SubCategoryScreen()),
-            );
-          },
+        Navigator.of(context).push(
+          CustomPageRoute(child: const SubCategoryScreen()),
+        );
+      },
       child: Container(
         width: size.width,
         child: Column(
@@ -28,7 +34,8 @@ class SearchInterestTile extends StatelessWidget {
                 children: [
                   Center(
                     child: Icon(
-                      interest.icon!,color: Colors.blueGrey[800],
+                      interest.icon!,
+                      color: Colors.blueGrey[800],
                       size: 50,
                     ),
                   ),
@@ -40,11 +47,20 @@ class SearchInterestTile extends StatelessWidget {
                     children: [
                       Text(
                         interest.title!,
-                        style: TextStyle(fontSize: 20,fontFamily: "Futura",fontWeight: FontWeight.bold,color: Colors.blueGrey[800]),
+                        style: TextStyle(
+                            fontFamily: "workSans",
+                            fontSize: 20,
+                            //fontFamily: "Futura",
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blueGrey[800]),
                       ),
                       Text(
                         interest.description!,
-                        style: TextStyle(fontSize: 16,fontFamily: "Futura",color: Colors.blueGrey[700]),
+                        style: TextStyle(
+                            fontFamily: "workSans",
+                            fontSize: 16,
+                            //fontFamily: "Futura",
+                            color: Colors.blueGrey[700]),
                       )
                     ],
                   )

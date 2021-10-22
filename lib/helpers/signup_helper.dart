@@ -1,3 +1,7 @@
+import 'package:fiverr/screens/sign_in.dart';
+import 'package:fiverr/screens/sign_up.dart';
+import 'package:fiverr/screens/term_of_services.dart';
+import 'package:fiverr/utils/custom_page_route.dart';
 import 'package:flutter/material.dart';
 
 class SignupHelper extends StatelessWidget {
@@ -20,6 +24,7 @@ class SignupHelper extends StatelessWidget {
             "Join Fiverr",
             style: TextStyle(
                 fontSize: 20,
+                fontFamily: "workSans",
                 fontWeight: FontWeight.bold,
                 color: Colors.black87),
           ),
@@ -30,7 +35,7 @@ class SignupHelper extends StatelessWidget {
             "Join our growing freelance community to offer your professional services, connect with customers, and get paid on Fiverr's trusted platform",
             softWrap: true,
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 14, fontFamily: "workSans",
               //fontWeight: FontWeight.bold,
               color: Colors.black54,
             ),
@@ -52,6 +57,7 @@ class SignupHelper extends StatelessWidget {
                   maxLines: 1,
                   style: TextStyle(
                       fontSize: 14,
+                      fontFamily: "workSans",
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
@@ -75,6 +81,7 @@ class SignupHelper extends StatelessWidget {
                   maxLines: 1,
                   style: TextStyle(
                       fontSize: 14,
+                      fontFamily: "workSans",
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
@@ -98,6 +105,7 @@ class SignupHelper extends StatelessWidget {
                   maxLines: 1,
                   style: TextStyle(
                       fontSize: 14,
+                      fontFamily: "workSans",
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
@@ -109,17 +117,26 @@ class SignupHelper extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
+            children: [
+              const Text(
                 "By joining you agree to Fiverr's ",
                 style: TextStyle(
+                  fontFamily: "workSans",
                   color: Colors.black54,
                 ),
               ),
-              Text(
-                "Terms of Services",
-                style: TextStyle(
-                  color: Color(0xff1dbf73),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    CustomPageRoute(child: const TermOfServices()),
+                  );
+                },
+                child: const Text(
+                  "Terms of Services",
+                  style: TextStyle(
+                    fontFamily: "workSans",
+                    color: Color(0xff1dbf73),
+                  ),
                 ),
               ),
             ],
@@ -129,11 +146,20 @@ class SignupHelper extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: const [
-              Text(
-                "Sign In",
-                style: TextStyle(
-                    color: Color(0xff1dbf73), fontWeight: FontWeight.bold),
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    CustomPageRoute(child: const SignIn()),
+                  );
+                },
+                child: const Text(
+                  "Sign In",
+                  style: TextStyle(
+                      fontFamily: "workSans",
+                      color: Color(0xff1dbf73),
+                      fontWeight: FontWeight.bold),
+                ),
               )
             ],
           ),

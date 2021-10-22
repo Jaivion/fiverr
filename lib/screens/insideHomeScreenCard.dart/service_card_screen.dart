@@ -55,7 +55,7 @@ class _CardScreenState extends State<CardScreen> {
                   child: Row(children: [
                     Text("Logo Design",
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 18,fontFamily: "workSans",
                           color: Colors.blueGrey[850],
                           fontWeight: FontWeight.bold,
                         ))
@@ -69,7 +69,7 @@ class _CardScreenState extends State<CardScreen> {
                           "Hire a designer to create a logo for a new brande or give your existing logo a face lift",
                           //overflow: TextOverflow.clip,
                           softWrap: true,
-                          style: TextStyle(
+                          style: TextStyle(fontFamily: "workSans",
                             fontSize: 14,
                             color: Colors.blueGrey[800],
                             //fontWeight: FontWeight.bold,
@@ -82,7 +82,7 @@ class _CardScreenState extends State<CardScreen> {
                   child: Row(children: [
                     Text("Shop by",
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 18,fontFamily: "workSans",
                           color: Colors.blueGrey[850],
                           fontWeight: FontWeight.bold,
                         ))

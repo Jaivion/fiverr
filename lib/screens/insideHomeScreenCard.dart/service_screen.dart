@@ -89,7 +89,8 @@ class _ServiceScreenState extends State<ServiceScreen> {
                           Text(
                             "User",
                             style: TextStyle(
-                                fontFamily: "Tofino",
+                                fontFamily: "workSans",
+                                // fontFamily: "Tofino",
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
                                 color: Colors.grey[850]),
@@ -97,7 +98,8 @@ class _ServiceScreenState extends State<ServiceScreen> {
                           Text(
                             "Top Rated Seller",
                             style: TextStyle(
-                                fontFamily: "Tofino",
+                                fontFamily: "workSans",
+                                //fontFamily: "Tofino",
                                 //fontWeight: FontWeight.bold,
                                 fontSize: 14,
                                 color: Colors.grey[500]),
@@ -120,6 +122,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                     Text("Logo Design",
                         style: TextStyle(
                           fontSize: 22,
+                          fontFamily: "workSans",
                           color: Colors.blueGrey[850],
                           fontWeight: FontWeight.bold,
                         ))
@@ -135,6 +138,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                           softWrap: true,
                           style: TextStyle(
                             fontSize: 16,
+                            fontFamily: "workSans",
                             color: Colors.blueGrey[800],
                             //fontWeight: FontWeight.bold,
                           )),
@@ -146,13 +150,26 @@ class _ServiceScreenState extends State<ServiceScreen> {
                   thickness: 1,
                 ),
                 const ListTile(
-                  title: Text("Delivery Days"),
+                  title: Text(
+                    "Delivery Days",
+                    style: TextStyle(
+                      fontFamily: "workSans",
+                    ),
+                  ),
                   trailing: Text(
                     "5 Days",
+                    style: TextStyle(
+                      fontFamily: "workSans",
+                    ),
                   ),
                 ),
                 const ListTile(
-                    title: Text("Document Formatting"),
+                    title: Text(
+                      "Document Formatting",
+                      style: TextStyle(
+                        fontFamily: "workSans",
+                      ),
+                    ),
                     trailing: Icon(
                       Icons.check,
                       size: 22,
@@ -177,6 +194,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                             maxLines: 1,
                             style: TextStyle(
                                 fontSize: 16,
+                                fontFamily: "workSans",
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white),
                           ),
@@ -194,7 +212,13 @@ class _ServiceScreenState extends State<ServiceScreen> {
                       const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: Row(
                     children: [
-                      const Text("401 Reviews",style: TextStyle(fontWeight: FontWeight.bold,),),
+                      const Text(
+                        "401 Reviews",
+                        style: TextStyle(
+                          fontFamily: "workSans",
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                       const SizedBox(
                         width: 10,
                       ),
@@ -205,6 +229,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                       ),
                       Text("5",
                           style: TextStyle(
+                            fontFamily: "workSans",
                             color: Colors.orange[300],
                             fontWeight: FontWeight.bold,
                           )),

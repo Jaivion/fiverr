@@ -24,9 +24,25 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   bool isSwitched = false;
+  bool isLoginSwitched = false;
   var textValue = 'Switch is OFF';
-  bool isLoggedIn = true;
+  bool isLoggedIn = false;
   String name = "User Name";
+  void toggleLoginSwitch(bool value) {
+    if (isLoginSwitched == false) {
+      setState(() {
+        isLoginSwitched = true;
+        isLoggedIn = true;
+      });
+      
+    } else {
+      setState(() {
+        isLoginSwitched = false;
+        isLoggedIn = false;
+      });
+      
+    }
+  }
 
   void toggleSwitch(bool value) {
     if (isSwitched == false) {
@@ -92,7 +108,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Text(
                                 isLoggedIn ? name : "User",
                                 style: TextStyle(
-                                    fontFamily: "Tofino",
+                                    // fontFamily: "Tofino",
+                                    fontFamily: "workSans",
                                     fontWeight: FontWeight.bold,
                                     fontSize: 18,
                                     color: Colors.grey[200]),
@@ -102,7 +119,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     ? "Personal balance: \$0"
                                     : "Welcome to Fiverr",
                                 style: TextStyle(
-                                    fontFamily: "Tofino",
+                                    fontFamily: "workSans",
+                                    //fontFamily: "Tofino",
                                     //fontWeight: FontWeight.bold,
                                     fontSize: 14,
                                     color: Colors.grey[200]),
@@ -156,9 +174,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               : const SizedBox(
                                   width: 5,
                                 ),
-                          const SizedBox(
-                            width: 5,
-                          )
+                          Switch(
+                            onChanged: toggleLoginSwitch,
+                            value: isLoginSwitched,
+                            activeColor: Colors.lightGreen[800],
+                            activeTrackColor: Colors.lightGreen[400],
+                            inactiveThumbColor: Colors.grey[500],
+                            inactiveTrackColor: Colors.grey[300],
+                          ),
                         ],
                       ),
                     )
@@ -182,7 +205,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             child: Text(
                               "My Fiverr",
                               style: TextStyle(
-                                  fontSize: 22,
+                                  fontFamily: "workSans",
+                                  fontSize: 20,
                                   color: Colors.blueGrey[850],
                                   fontWeight: FontWeight.bold),
                             ),
@@ -220,7 +244,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               // },
                               onTap: () {
                                 Navigator.of(context).push(
-                                  CustomPageRoute(child: const MyInterests(),direction: AxisDirection.down),
+                                  CustomPageRoute(
+                                      child: const MyInterests(),
+                                      direction: AxisDirection.down),
                                 );
                               },
                               child: const CustomListTile(
@@ -237,7 +263,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             child: Text(
                               "Buying",
                               style: TextStyle(
-                                  fontSize: 22,
+                                  fontFamily: "workSans",
+                                  fontSize: 20,
                                   color: Colors.blueGrey[850],
                                   fontWeight: FontWeight.bold),
                             ),
@@ -276,7 +303,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               // },
                               onTap: () {
                                 Navigator.of(context).push(
-                                  CustomPageRoute(child: const PostRequest(),direction: AxisDirection.down),
+                                  CustomPageRoute(
+                                      child: const PostRequest(),
+                                      direction: AxisDirection.down),
                                 );
                               },
                               child: const CustomListTile2(
@@ -315,7 +344,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             child: Text(
                               "General",
                               style: TextStyle(
-                                  fontSize: 22,
+                                  fontSize: 20,
+                                  fontFamily: "workSans",
                                   color: Colors.blueGrey[850],
                                   fontWeight: FontWeight.bold),
                             ),
@@ -335,7 +365,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       Text(
                                         "Show online status", //textdata
                                         style: TextStyle(
-                                          fontSize: 16,
+                                          fontSize: 14,
+                                          fontFamily: "workSans",
                                           color: Colors.grey[850],
                                         ),
                                       ),
@@ -470,6 +501,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       "Join Fiverr",
                                       style: TextStyle(
                                         fontSize: 16,
+                                        fontFamily: "workSans",
                                         color: Colors.indigoAccent[700],
                                       ),
                                     ),
@@ -507,6 +539,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       "Sign in",
                                       style: TextStyle(
                                         fontSize: 16,
+                                        fontFamily: "workSans",
                                         color: Colors.grey[850],
                                       ),
                                     ),
@@ -526,6 +559,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               "General",
                               style: TextStyle(
                                   fontSize: 22,
+                                  fontFamily: "workSans",
                                   color: Colors.blueGrey[850],
                                   fontWeight: FontWeight.bold),
                             ),
@@ -543,7 +577,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               // },
                               onTap: () {
                                 Navigator.of(context).push(
-                                  CustomPageRoute(child: const MyInterests(),direction: AxisDirection.down),
+                                  CustomPageRoute(
+                                      child: const MyInterests(),
+                                      direction: AxisDirection.down),
                                 );
                               },
                               child: const CustomListTile(
@@ -632,6 +668,48 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   mytext: "Privacy Policy"),
                             ),
                           ),
+                          
+                          Material(
+                            child: InkWell(
+                              splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) =>
+                              //             const BecomeSeller()),
+                              //   );
+                              // },
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const BecomeSeller()),
+                                );
+                              },
+                              child: const CustomListTile(
+                                  myicon: Icons.error,
+                                  mytext: "Become a seller"),
+                            ),
+                          ),
+                          Material(
+                            child: InkWell(
+                              splashColor: Colors.grey,
+                              // onTap: () {
+                              //   Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => const Support()),
+                              //   );
+                              // },
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  CustomPageRoute(child: const Support()),
+                                );
+                              },
+                              child: const CustomListTile(
+                                  myicon: Icons.support_outlined,
+                                  mytext: "Support"),
+                            ),
+                          ),
                           const SizedBox(
                             height: 50,
                           )
@@ -674,7 +752,8 @@ class CustomListTile extends StatelessWidget {
                 Text(
                   mytext, //textdata
                   style: TextStyle(
-                    fontSize: 16,
+                    //fontWeight: FontWeight.bold,
+                    fontSize: 14, fontFamily: "workSans",
                     color: Colors.grey[850],
                   ),
                 ),
@@ -725,7 +804,8 @@ class CustomListTile2 extends StatelessWidget {
                 Text(
                   mytext, //textdata
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 14,
+                    fontFamily: "workSans",
                     color: Colors.grey[850],
                   ),
                 ),

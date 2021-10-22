@@ -21,7 +21,7 @@ class _PaymentsState extends State<Payments> {
         ),
         title: const Text(
           "Payments",
-          style: TextStyle(color: Colors.black87),
+          style: TextStyle(fontFamily: "workSans", color: Colors.black87),
         ),
         backgroundColor: const Color(0xffffffff),
       ),
@@ -29,10 +29,16 @@ class _PaymentsState extends State<Payments> {
         child: Column(
           children: [
             ListTile(
-              title: const Text("Currency"),
+              title: const Text(
+                "Currency",
+                style: TextStyle(
+                  fontFamily: "workSans",
+                ),
+              ),
               trailing: Text(
                 "\$USD",
-                style: TextStyle(color: Colors.green[400]),
+                style:
+                    TextStyle(fontFamily: "workSans", color: Colors.green[400]),
               ),
             ),
             const Divider(
@@ -41,15 +47,23 @@ class _PaymentsState extends State<Payments> {
               endIndent: 2,
             ),
             const ListTile(
-              title: Text("PayPal single click"),
-            ),
+                title: Text(
+              "PayPal single click",
+              style: TextStyle(
+                fontFamily: "workSans",
+              ),
+            )),
             const Divider(
               height: 1,
               indent: 15,
               endIndent: 2,
             ),
-            const ListTile(
-              title: Text("Personal balance"),
+            ListTile(
+              title: Text(
+                "Personal balance",
+                style:
+                    TextStyle(fontSize: 18,fontFamily: "workSans", color: Colors.green[400]),
+              ),
             ),
             const Divider(
               height: 1,

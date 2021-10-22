@@ -18,7 +18,7 @@ class RectangleCard extends StatelessWidget {
       child: Material(
         child: InkWell(
           onTap: () {
-            Navigator.push( 
+            Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const ServiceScreen()),
             );
@@ -41,7 +41,7 @@ class RectangleCard extends StatelessWidget {
               children: [
                 Container(
                   height: size.height * 0.18,
-                  width: size.width * 0.48,
+                  width: size.width * 0.45,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image:
@@ -70,12 +70,14 @@ class RectangleCard extends StatelessWidget {
                           Text(
                             " 4.9 ",
                             style: TextStyle(
+                              fontFamily: "workSans",
                               color: Colors.orange[300],
                             ),
                           ),
                           Text(
                             " (5) ",
                             style: TextStyle(
+                              fontFamily: "workSans",
                               color: Colors.grey[350],
                             ),
                           ),
@@ -97,6 +99,7 @@ class RectangleCard extends StatelessWidget {
                             "Description...",
                             maxLines: 3,
                             style: TextStyle(
+                              fontFamily: "workSans",
                               color: Colors.grey[800],
                               fontSize: 14,
                             ),
@@ -112,17 +115,29 @@ class RectangleCard extends StatelessWidget {
                         child: Row(
                           //mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            const SizedBox(width: 100,),
-                            const Text("From "),
+                            const SizedBox(
+                              width: 95,
+                            ),
+                            const Text(
+                              "From ",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontFamily: "workSans",
+                              ),
+                            ),
                             Text(
                               "\$",
                               style: TextStyle(
-                                  fontSize: 16, color: Colors.blueGrey[850]),
+                                  fontFamily: "workSans",
+                                  fontSize: 14,
+                                  color: Colors.blueGrey[850]),
                             ),
                             Text(
                               "79",
                               style: TextStyle(
-                                  fontSize: 16, color: Colors.blueGrey[850]),
+                                  fontFamily: "workSans",
+                                  fontSize: 14,
+                                  color: Colors.blueGrey[850]),
                             )
                           ],
                         ),

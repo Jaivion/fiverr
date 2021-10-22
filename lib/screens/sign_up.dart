@@ -20,7 +20,7 @@ class _SignUpState extends State<SignUp> {
             },
             color: Colors.grey[850],
           ),
-          title: const Text("Sign up",style: TextStyle(color: Colors.black87),),
+          title: const Text("Sign up",style: TextStyle(fontSize: 18,fontFamily: "workSans",color: Colors.black87),),
           backgroundColor: const Color(0xffffffff),
       ),
       body: const SignupHelper(),

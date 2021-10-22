@@ -19,7 +19,7 @@ class _TermOfServicesState extends State<TermOfServices> {
             },
             color: Colors.grey[850],
           ),
-          title: const Text("Terms of services",style: TextStyle(color: Colors.black87),),
+          title: const Text("Terms of services",style: TextStyle(fontSize: 18,fontFamily: "workSans",color: Colors.black87),),
           backgroundColor: const Color(0xffffffff),
       ),
       body: Container(),

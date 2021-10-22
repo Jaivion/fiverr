@@ -2,6 +2,7 @@ import 'package:fiverr/helpers/onboarding_buyer_card.dart';
 import 'package:fiverr/helpers/onboarding_seller_card.dart';
 import 'package:fiverr/helpers/signin_helper.dart';
 import 'package:fiverr/helpers/signup_helper.dart';
+import 'package:fiverr/utils/custom_page_route.dart';
 import 'package:flutter/painting.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fiverr/screens/bottomnav.dart';
@@ -44,7 +45,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
     var size = MediaQuery.of(context).size;
 
     return Material(
-      
       child: Container(
         height: size.height,
         width: size.width,
@@ -68,27 +68,43 @@ class _OnboardingPageState extends State<OnboardingPage> {
                       padding: const EdgeInsets.only(left: 10),
                       child: Row(
                         children: [
-                          const Text(
+                          Text(
                             "fiverr",
-                            style: TextStyle(
-                                fontSize: 35,
-                                fontFamily: "Ludo",
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                            style: GoogleFonts.lato(
+                              textStyle: const TextStyle(
+                                  fontSize: 35,
+                                  fontFamily: "workSans",
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            // style: TextStyle(
+                            //     fontSize: 35,
+                            //     fontFamily: "workSans",
+                            //     color: Colors.white,
+                            //     fontWeight: FontWeight.bold),
                           ),
                           // style: TextStyle(
                           //     fontSize: 35,
                           //     fontWeight: FontWeight.bold,
                           //     color: Colors.white),
 
-                          Text(".",
-                              style: GoogleFonts.lato(
-                                textStyle: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
-                                    fontFamily: "Futura",
-                                    color: Colors.green[400]),
-                              )),
+                          Text(
+                            ".",
+                            style: GoogleFonts.lato(
+                              textStyle: TextStyle(
+                                  fontSize: 35,
+                                  fontFamily: "workSans",
+                                  color: Colors.green[400],
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            // style: GoogleFonts.lato(
+                            //   textStyle: TextStyle(
+                            //       fontSize: 30,
+                            //       fontWeight: FontWeight.bold,
+                            //       fontFamily: "workSans",
+                            //       color: Colors.green[400]),
+                            // )
+                          ),
                         ],
                       ),
                     ),
@@ -101,7 +117,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         "Freelance Services.",
                         style: TextStyle(
                             fontSize: 24,
-                            fontFamily: "Futura",
+                            fontFamily: "workSans",
+                            //fontFamily: "Futura",
                             //fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
@@ -112,7 +129,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         "On Demand.",
                         style: TextStyle(
                             fontSize: 24,
-                            fontFamily: "Futura",
+                            fontFamily: "workSans",
                             //fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
@@ -151,7 +168,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           InkWell(
-                            onTap: () => _showBottomSheet(context, 2),
+                            onTap: () =>
+                                // Navigator.of(context).push(
+                                //           CustomPageRoute(
+                                //               child:  const BuyerCardScreen(),direction: AxisDirection.down),
+                                //         ),
+                                _showBottomSheet(context, 2),
                             child: Container(
                               alignment: Alignment.bottomCenter,
                               height: 130,
@@ -182,7 +204,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                 child: Text(
                                   "Become a Freelancer",
                                   style: TextStyle(
-                                      fontFamily: "Futura",
+                                      fontFamily: "workSans",
+                                      //fontFamily: "Futura",
                                       fontSize: 14,
                                       color: Colors.grey[850]),
                                   textAlign: TextAlign.center,
@@ -193,7 +216,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           //const Spacer(),
                           InkWell(
                             splashColor: Colors.red,
-                            onTap: () => _showBottomSheet(context, 3),
+                            onTap: () =>
+                                // Navigator.of(context).push(
+                                //           CustomPageRoute(
+                                //               child:  const SellerCardScreen(),direction: AxisDirection.down),
+                                //         ),
+                                _showBottomSheet(context, 3),
                             child: Container(
                               alignment: Alignment.bottomCenter,
                               height: 130,
@@ -224,7 +252,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
                                 child: Text(
                                   "Join Our Community",
                                   style: TextStyle(
-                                      fontFamily: "Futura",
+                                      fontFamily: "workSans",
+                                      //fontFamily: "Futura",
                                       fontSize: 14,
                                       color: Colors.grey[850]),
                                   textAlign: TextAlign.center,
@@ -235,32 +264,43 @@ class _OnboardingPageState extends State<OnboardingPage> {
                         ],
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(
-                            top: 5, left: 10, right: 10),
+                        padding:
+                            const EdgeInsets.only(top: 5, left: 10, right: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             TextButton(
-                                onPressed: () => _showBottomSheet(context, 0),
+                                onPressed: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const SigninHelper()),
+                                    ),
+                                // Navigator.of(context).push(
+                                //       CustomPageRoute(
+                                //           child:  const SigninHelper(),direction: AxisDirection.down),
+                                //     ),
+                                //_showBottomSheet(context, 0),
                                 child: const Text(
                                   "Sign In",
                                   style: TextStyle(
-                                      fontFamily: "Futura",
+                                      fontFamily: "workSans",
+                                      //fontFamily: "Futura",
                                       fontWeight: FontWeight.bold,
                                       color: Colors.green,
                                       fontSize: 16),
                                 )),
                             TextButton(
-                                onPressed: () =>
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const BottomNav())),
+                                onPressed: () => Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const BottomNav())),
                                 child: const Text(
                                   "Skip",
                                   style: TextStyle(
-                                      fontFamily: "Futura",
+                                      fontFamily: "workSans",
+                                      //fontFamily: "Futura",
                                       fontWeight: FontWeight.bold,
                                       color: Colors.green,
                                       fontSize: 16),

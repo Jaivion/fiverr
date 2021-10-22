@@ -19,7 +19,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
             },
             color: Colors.grey[850],
           ),
-          title: const Text("Privacy policy",style: TextStyle(color: Colors.black87),),
+          title: const Text("Privacy policy",style: TextStyle(fontSize: 18,fontFamily: "workSans",color: Colors.black87),),
           backgroundColor: const Color(0xffffffff),
       ),
       body: Container(),

@@ -35,6 +35,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.3.8
   google_fonts: ^2.1.0
+  # selectable_container: ^1.0.2
 
 dev_dependencies:
   flutter_test:
@@ -94,6 +95,10 @@ flutter:
     - family: Futura
       fonts:
         - asset: assets/fonts/FuturaLT-Book.ttf
+    - family: workSans
+      fonts:
+        - asset: assets/fonts/workSans/WorkSans-Italic-VariableFont_wght.ttf
+        - asset: assets/fonts/workSans/WorkSans-VariableFont_wght.ttf
   #       - asset: fonts/Schyler-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SellerCardScreen extends StatelessWidget {
@@ -5,18 +6,18 @@ class SellerCardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // var size = MediaQuery.of(context).size;
+    // var size = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.only(left: 10, right: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Spacer(),
-         
           const Text(
             "Work Your Way",
             style: TextStyle(
                 fontSize: 20,
+                fontFamily: "workSans",
                 fontWeight: FontWeight.bold,
                 color: Colors.black87),
           ),
@@ -25,16 +26,16 @@ class SellerCardScreen extends StatelessWidget {
           ),
           const Text(
             'You will bring the skill. We\'ll make earning easy.',
-            
             softWrap: true,
             style: TextStyle(
               fontSize: 14,
+              fontFamily: "workSans",
               fontWeight: FontWeight.bold,
               color: Colors.black54,
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 25,
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 30),
@@ -47,17 +48,26 @@ class SellerCardScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text("A Gig is bought",
-                          style:
-                              TextStyle(fontSize: 12, color: Colors.grey[400])),
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: "workSans",
+                              color: Colors.grey[400])),
                       Text("every",
                           style: TextStyle(
                             fontSize: 12,
+                            fontFamily: "workSans",
                             color: Colors.grey[400],
                           )),
+                      const SizedBox(
+                        height: 5,
+                      ),
                       const Text(
                         "5 Sec",
-                        style:
-                            TextStyle(fontSize: 16, color: Color(0xff1dbf73)),
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "workSans",
+                            color: Color(0xff1dbf73)),
                       ),
                     ],
                   ),
@@ -68,17 +78,26 @@ class SellerCardScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text("Projects",
-                          style:
-                              TextStyle(fontSize: 12, color: Colors.grey[400])),
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: "workSans",
+                              color: Colors.grey[400])),
                       Text("completed",
                           style: TextStyle(
                             fontSize: 12,
+                            fontFamily: "workSans",
                             color: Colors.grey[400],
                           )),
+                      const SizedBox(
+                        height: 5,
+                      ),
                       const Text(
                         "50M+",
-                        style:
-                            TextStyle(fontSize: 16, color: Color(0xff1dbf73)),
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "workSans",
+                            color: Color(0xff1dbf73)),
                       ),
                     ],
                   ),
@@ -89,12 +108,20 @@ class SellerCardScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text("Price range",
-                          style:
-                              TextStyle(fontSize: 12, color: Colors.grey[400])),
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: "workSans",
+                              color: Colors.grey[400])),
+                      const SizedBox(
+                        height: 12,
+                      ),
                       const Text(
                         "\$5-\$10K",
-                        style:
-                            TextStyle(fontSize: 16, color: Color(0xff1dbf73)),
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: "workSans",
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xff1dbf73)),
                       ),
                     ],
                   ),
@@ -126,7 +153,9 @@ class SellerCardScreen extends StatelessWidget {
                       child: Text(
                         "Create a Gig",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "workSans",
+                            fontSize: 16),
                       ),
                     ),
                     Padding(
@@ -138,6 +167,7 @@ class SellerCardScreen extends StatelessWidget {
                         maxLines: 3,
                         style: TextStyle(
                           fontSize: 14,
+                          fontFamily: "workSans",
                           color: Colors.black54,
                         ),
                       ),
@@ -157,7 +187,7 @@ class SellerCardScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Icon(
-                  Icons.assignment_outlined,
+                  Icons.mail_outline,
                   size: 40,
                   color: Colors.grey[200],
                 ),
@@ -169,20 +199,23 @@ class SellerCardScreen extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.all(2.0),
                       child: Text(
-                        "Create a Gig",
+                        "Deliver your work",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "workSans",
+                            fontSize: 16),
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.all(2.0),
                       child: Text(
-                        "Offer your services to a goal audience and start earning more",
+                        "Use your built-in tools to communicate with your customers and deliver their orders.",
                         softWrap: true,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 3,
                         style: TextStyle(
                           fontSize: 14,
+                          fontFamily: "workSans",
                           color: Colors.black54,
                         ),
                       ),
@@ -202,7 +235,7 @@ class SellerCardScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Icon(
-                  Icons.assignment_outlined,
+                  Icons.task_outlined,
                   size: 40,
                   color: Colors.grey[200],
                 ),
@@ -214,20 +247,23 @@ class SellerCardScreen extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.all(2.0),
                       child: Text(
-                        "Create a Gig",
+                        "Get Paid",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 18),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "workSans",
+                            fontSize: 16),
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.all(2.0),
                       child: Text(
-                        "Offer your services to a goal audience and start earning more",
+                        "Receive your payment once the order is complete. It's that simple ",
                         softWrap: true,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 3,
                         style: TextStyle(
                           fontSize: 14,
+                          fontFamily: "workSans",
                           color: Colors.black54,
                         ),
                       ),
@@ -240,7 +276,6 @@ class SellerCardScreen extends StatelessWidget {
           const SizedBox(
             height: 60,
           ),
-
           Material(
             borderRadius: BorderRadius.circular(4),
             color: const Color(0xff1dbf73),
@@ -255,13 +290,13 @@ class SellerCardScreen extends StatelessWidget {
                   maxLines: 1,
                   style: TextStyle(
                       fontSize: 16,
+                      fontFamily: "workSans",
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
               ),
             ),
           ),
-
           const SizedBox(
             height: 90,
           ),

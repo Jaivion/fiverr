@@ -22,7 +22,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         title: const Text(
           "Settings",
-          style: TextStyle(color: Colors.black87),
+          style: TextStyle(fontSize: 18,fontFamily: "workSans", color: Colors.black87),
         ),
         backgroundColor: const Color(0xffffffff),
       ),
@@ -32,30 +32,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Column(
           children: [
             const ListTile(
-              title: Text("Notifications"),
+              title: Text(
+                "Notifications",
+                style: TextStyle(
+                  fontFamily: "workSans",
+                ),
+              ),
             ),
             const Divider(
               height: 1,
               thickness: 1,
             ),
             const ListTile(
-              title: Text("Notification Sound"),
-            ),
-            const Divider(
-              height: 1,
-              thickness: 1,
-              indent: 10,
-            ),
-            const ListTile(
-              title: Text("Security"),
-            ),
-            const Divider(
-              height: 1,
-              thickness: 1,
-              indent: 10,
-            ),
-            const ListTile(
-              title: Text("Terms of Service"),
+              title: Text(
+                "Notification Sound",
+                style: TextStyle(
+                  fontFamily: "workSans",
+                ),
+              ),
             ),
             const Divider(
               height: 1,
@@ -63,7 +57,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
               indent: 10,
             ),
             const ListTile(
-              title: Text("Privacy policy"),
+              title: Text(
+                "Security",
+                style: TextStyle(
+                  fontFamily: "workSans",
+                ),
+              ),
             ),
             const Divider(
               height: 1,
@@ -71,7 +70,38 @@ class _SettingsScreenState extends State<SettingsScreen> {
               indent: 10,
             ),
             const ListTile(
-              title: Text("Language"),
+              title: Text(
+                "Terms of Service",
+                style: TextStyle(
+                  fontFamily: "workSans",
+                ),
+              ),
+            ),
+            const Divider(
+              height: 1,
+              thickness: 1,
+              indent: 10,
+            ),
+            const ListTile(
+              title: Text(
+                "Privacy policy",
+                style: TextStyle(
+                  fontFamily: "workSans",
+                ),
+              ),
+            ),
+            const Divider(
+              height: 1,
+              thickness: 1,
+              indent: 10,
+            ),
+            const ListTile(
+              title: Text(
+                "Language",
+                style: TextStyle(
+                  fontFamily: "workSans",
+                ),
+              ),
             ),
             const Divider(
               height: 1,
@@ -79,7 +109,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
               indent: 10,
             ),
             ListTile(
-              title: Text("Logout",style: TextStyle(color: Colors.red[300]),),
+              title: Text(
+                "Logout",
+                style:
+                    TextStyle(fontFamily: "workSans", color: Colors.red[300]),
+              ),
             ),
             const Divider(
               height: 1,

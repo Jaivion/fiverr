@@ -1,3 +1,4 @@
+import 'package:fiverr/helpers/search_bottom_sheet.dart';
 import 'package:fiverr/models/categories_category_model.dart';
 import 'package:fiverr/models/categories_interests_model.dart';
 import 'package:fiverr/widgets/search_category_tile.dart';
@@ -12,6 +13,30 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+void _showSearchSheet(BuildContext ctx, int index) {
+    int _currentBtmSheetIndex = index;
+    // void btmIndex() {
+    //   BottomNav.setIndex(2);
+    // }
+    const tabs = [
+      SearchBottomSheet(),
+    ];
+    showModalBottomSheet(
+        isScrollControlled: true,
+        elevation: 10,
+        backgroundColor: Colors.white,
+        context: ctx,
+        builder: (ctx) => Container(
+              // width: double.infinity,
+              // height: double.infinity,
+              color: Colors.white54,
+              alignment: Alignment.bottomCenter,
+              //child: const Text('Breathe in... Breathe out...'),
+              child: tabs[_currentBtmSheetIndex],
+            ));
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,15 +50,21 @@ class _SearchScreenState extends State<SearchScreen> {
             shadowColor: Colors.grey[400],
             title: Text(
               "Categories",
-              style: TextStyle(fontSize: 20, color: Colors.grey[700]),
+              style: TextStyle(
+                  fontFamily: "workSans",
+                  fontSize: 18,
+                  color: Colors.grey[700]),
             ),
-            actions: const [
-              Icon(
-                Icons.search,
-                color: Colors.black87,
-                size: 26,
+            actions:  [
+              InkWell(
+                onTap: () => _showSearchSheet(context, 0),
+                child: const Icon(
+                  Icons.search,
+                  color: Colors.black87,
+                  size: 26,
+                ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 15,
               ),
             ],
@@ -45,13 +76,13 @@ class _SearchScreenState extends State<SearchScreen> {
                 Tab(
                   child: Text(
                     "Categories",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontFamily: "workSans", fontSize: 18),
                   ),
                 ),
                 Tab(
                   child: Text(
                     "Interest",
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontFamily: "workSans", fontSize: 18),
                   ),
                 ),
               ],
@@ -102,6 +133,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             "Your interest",
                             style: TextStyle(
                                 fontSize: 20,
+                                fontFamily: "workSans",
                                 fontWeight: FontWeight.bold,
                                 color: Colors.blueGrey[800]),
                           ),
@@ -111,7 +143,9 @@ class _SearchScreenState extends State<SearchScreen> {
                           Text(
                             "Choose your interests for a better discovery experience.",
                             style: TextStyle(
-                                fontSize: 16, color: Colors.blueGrey[700]),
+                                fontFamily: "workSans",
+                                fontSize: 16,
+                                color: Colors.blueGrey[700]),
                             softWrap: true,
                           ),
                           const SizedBox(
@@ -131,6 +165,7 @@ class _SearchScreenState extends State<SearchScreen> {
                                   maxLines: 1,
                                   style: TextStyle(
                                       fontSize: 14,
+                                      fontFamily: "workSans",
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white),
                                 ),
@@ -144,6 +179,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             "You may also like",
                             style: TextStyle(
                                 fontSize: 20,
+                                fontFamily: "workSans",
                                 fontWeight: FontWeight.bold,
                                 color: Colors.blueGrey[800]),
                           ),
@@ -158,7 +194,6 @@ class _SearchScreenState extends State<SearchScreen> {
                         //height: 200,
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
-                          
                           itemCount: searchInterestList.length,
                           itemBuilder: (context, index) {
                             CategoriesInterestModel interestsData =

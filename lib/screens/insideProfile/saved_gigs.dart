@@ -21,7 +21,7 @@ class _SavedGigsState extends State<SavedGigs> {
         ),
         title: const Text(
           "Saved",
-          style: TextStyle(color: Colors.black87),
+          style: TextStyle(fontSize: 18,fontFamily: "workSans",color: Colors.black87),
         ),
         backgroundColor: const Color(0xffffffff),
       ),

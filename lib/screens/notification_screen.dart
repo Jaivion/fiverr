@@ -18,7 +18,7 @@ class _MyNotificationScreenState extends State<MyNotificationScreen> {
         shadowColor: Colors.grey[400],
         title: Text(
           "Notifications",
-          style: TextStyle(fontSize: 20, color: Colors.grey[700]),
+          style: TextStyle(fontFamily: "workSans",fontSize: 18, color: Colors.grey[700]),
         ),
         // actions: const [
         //   Icon(

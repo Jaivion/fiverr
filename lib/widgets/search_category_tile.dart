@@ -1,5 +1,6 @@
 import 'package:fiverr/models/categories_category_model.dart';
 import 'package:fiverr/screens/sub_category.dart';
+import 'package:fiverr/utils/custom_page_route.dart';
 import 'package:flutter/material.dart';
 
 class SearchCategoryTile extends StatelessWidget {
@@ -12,10 +13,15 @@ class SearchCategoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return InkWell(
+      // onTap: () {
+      //   Navigator.push(
+      //     context,
+      //     MaterialPageRoute(builder: (context) => const SubCategoryScreen()),
+      //   );
+      // },
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const SubCategoryScreen()),
+        Navigator.of(context).push(
+          CustomPageRoute(child: const SubCategoryScreen()),
         );
       },
       child: Container(
@@ -43,15 +49,18 @@ class SearchCategoryTile extends StatelessWidget {
                         categories.title!,
                         style: TextStyle(
                             fontSize: 20,
-                            fontFamily: "Futura",
+                            fontFamily: "workSans",
+                            //fontFamily: "Futura",
                             fontWeight: FontWeight.bold,
                             color: Colors.blueGrey[800]),
                       ),
                       Text(
                         "categories.description",
                         style: TextStyle(
-                          //fontFamily: "Franklin gothic",
-                            fontSize: 16, color: Colors.blueGrey[700]),
+                            fontFamily: "workSans",
+                            //fontFamily: "Franklin gothic",
+                            fontSize: 16,
+                            color: Colors.blueGrey[700]),
                       )
                     ],
                   )
@@ -71,5 +80,3 @@ class SearchCategoryTile extends StatelessWidget {
     );
   }
 }
-
-

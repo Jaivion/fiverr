@@ -1,3 +1,4 @@
+import 'package:fiverr/helpers/feadback_dialog_box.dart';
 import 'package:flutter/material.dart';
 
 class Support extends StatefulWidget {
@@ -8,6 +9,80 @@ class Support extends StatefulWidget {
 }
 
 class _SupportState extends State<Support> {
+  void openDialog() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: const Color(0xff1dbf73),
+            title: const Center(
+              child: Text("Help Us Improve!",
+                  style: TextStyle(
+                    color: Colors.white,
+                  )),
+            ),
+            contentPadding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+            content: Container(
+              color: Colors.white,
+              width: 350,
+              height: 360,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    child: Icon(
+                      Icons.note_alt_outlined,
+                      color: Color(0xff1dbf73),
+                      size: 80,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                    child: Text(
+                      "What do you think about Fiverr app?",
+                      style: TextStyle(fontSize: 20),
+                      softWrap: true,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Divider(
+                    height: 1,
+                  ),
+                  ListTile(
+                    title: Text(
+                      "Happy",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Divider(
+                    height: 1,
+                  ),
+                  ListTile(
+                    title: Text(
+                      "Confused",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Divider(
+                    height: 1,
+                  ),
+                  ListTile(
+                    title: Text(
+                      "Unhappy",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,41 +96,59 @@ class _SupportState extends State<Support> {
         ),
         title: const Text(
           "Support",
-          style: TextStyle(color: Colors.black87),
+          style: TextStyle(
+              fontSize: 18, fontFamily: "workSans", color: Colors.black87),
         ),
         backgroundColor: const Color(0xffffffff),
       ),
       body: Container(
         child: Column(
-          children: const [
-            ListTile(
-              title: Text("Help & Education"),
+          children: [
+            const ListTile(
+              title: Text(
+                "Help & Education",
+                style: TextStyle(fontFamily: "workSans"),
+              ),
             ),
-            Divider(
+            const Divider(
               height: 1,
               indent: 15,
               endIndent: 2,
             ),
-            ListTile(
-              title: Text("Leave feedback"),
+            InkWell(
+              onTap: () {
+                openDialog();
+              },
+              child: const ListTile(
+                title: Text(
+                  "Leave feedback",
+                  style: TextStyle(fontFamily: "workSans"),
+                ),
+              ),
             ),
-            Divider(
+            const Divider(
               height: 1,
               indent: 15,
               endIndent: 2,
             ),
-            ListTile(
-              title: Text("Forum"),
+            const ListTile(
+              title: Text(
+                "Forum",
+                style: TextStyle(fontFamily: "workSans"),
+              ),
             ),
-            Divider(
+            const Divider(
               height: 1,
               indent: 15,
               endIndent: 2,
             ),
-            ListTile(
-              title: Text("Blog"),
+            const ListTile(
+              title: Text(
+                "Blog",
+                style: TextStyle(fontFamily: "workSans"),
+              ),
             ),
-            Divider(
+            const Divider(
               height: 1,
               indent: 15,
               endIndent: 2,

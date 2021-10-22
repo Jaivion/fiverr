@@ -70,6 +70,7 @@ class MarketPlaceCard extends StatelessWidget {
                         //textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
+                            fontFamily: "workSans",
                             color: Colors.grey[800],
                             fontSize: 14,
                             fontWeight: FontWeight.bold),

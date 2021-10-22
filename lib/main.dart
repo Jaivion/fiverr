@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Feverr',
+      title: 'Fiverr',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -83,9 +83,10 @@ class _SplashState extends State<Splash> {
                   style: GoogleFonts.lato(
                     textStyle: TextStyle(
                         fontSize: 60,
+                        fontFamily: "workSans",
                         color: Colors.grey[850],
                         fontWeight: FontWeight.bold),
-                  ),
+                  ), 
                   // TextStyle(
                   //     fontSize: 60,
                   //     color: Colors.grey[850],
@@ -96,6 +97,7 @@ class _SplashState extends State<Splash> {
                   style: GoogleFonts.lato(
                     textStyle: TextStyle(
                         fontSize: 60,
+                        fontFamily: "workSans",
                         color: Colors.lightGreen[600],
                         fontWeight: FontWeight.bold),
                   ),

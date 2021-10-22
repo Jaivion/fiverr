@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'app_colors.dart';
 
-class BuyerCardScreen extends StatelessWidget {
+class BuyerCardScreen extends StatefulWidget {
   const BuyerCardScreen({Key? key}) : super(key: key);
 
+  @override
+  State<BuyerCardScreen> createState() => _BuyerCardScreenState();
+}
+
+class _BuyerCardScreenState extends State<BuyerCardScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -29,6 +35,7 @@ class BuyerCardScreen extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
+                          fontFamily: "workSans",
                           color: Colors.blueGrey[850]),
                     ),
                   ),
@@ -36,40 +43,27 @@ class BuyerCardScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                     child: Text(
                       "Select at least one.",
-                      style: TextStyle(color: Colors.black54),
+                      style: TextStyle(
+                          fontFamily: "workSans", color: Colors.black54),
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height:10),
-            Flexible(
+            const SizedBox(height: 10),
+            Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 child: GridView.count(
-                  shrinkWrap: true,
+                    childAspectRatio: 1.5,
+                    padding: const EdgeInsets.all(10.0),
+                    shrinkWrap: true,
                     //physics: const NeverScrollableScrollPhysics(),
                     crossAxisCount: 2,
                     crossAxisSpacing: 20.0,
                     mainAxisSpacing: 20.0,
                     children: List.generate(20, (index) {
-                      return Container(
-                        // height: 20,
-                        // width: 20,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(10)),
-                          boxShadow: const <BoxShadow>[
-                            BoxShadow(
-                              color: Colors.black26,
-                              offset: Offset(1.0, 1.0),
-                              blurRadius: 2.0,
-                            ),
-                          ],
-                        ),
-                        //child: const SizedBox(height: 50,width: 50,child: Text("Hello"),),
-                      );
+                      return const ItemCard();
                     })),
               ),
             ),
@@ -99,6 +93,7 @@ class BuyerCardScreen extends StatelessWidget {
                         maxLines: 1,
                         style: TextStyle(
                             fontSize: 16,
+                            fontFamily: "workSans",
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
@@ -108,6 +103,78 @@ class BuyerCardScreen extends StatelessWidget {
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class ItemCard extends StatefulWidget {
+  const ItemCard({Key? key}) : super(key: key);
+
+  @override
+  _ItemCardState createState() => _ItemCardState();
+}
+
+class _ItemCardState extends State<ItemCard> {
+  bool isSelected = false;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () => setState(() {
+        if (isSelected == false) {
+          isSelected = true;
+        } else {
+          isSelected = false;
+        }
+      }),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey[100],
+          borderRadius: BorderRadius.circular(10),
+          border: Border(
+            left: BorderSide(
+              color: isSelected ? Colors.green : Colors.grey.shade400,
+              width: 1,
+            ),
+            top: BorderSide(
+              color: isSelected ? Colors.green : Colors.grey.shade400,
+              width: 1,
+            ),
+            right: BorderSide(
+              color: isSelected ? Colors.green : Colors.grey.shade400,
+              width: 1,
+            ),
+            bottom: BorderSide(
+              color: isSelected ? Colors.green : Colors.grey.shade400,
+              width: 1,
+            ),
+          ),
+         
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: isSelected ? Colors.green : Colors.black26,
+              blurRadius: 3.0,
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: const [
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Icon(Icons.face_outlined,size: 50,),
+              ),
+              Divider(
+                height: 1,
+              ),
+              Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Text("Description"),
+              )
+            ],
+          ),
         ),
       ),
     );

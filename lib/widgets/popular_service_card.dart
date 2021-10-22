@@ -71,12 +71,14 @@ class PopularServiceCard extends StatelessWidget {
                       Text(
                         " 4.9 ",
                         style: TextStyle(
+                          fontFamily: "workSans",
                           color: Colors.orange[300],
                         ),
                       ),
                       Text(
                         " (5) ",
                         style: TextStyle(
+                          fontFamily: "workSans",
                           color: Colors.grey[350],
                         ),
                       ),
@@ -97,6 +99,7 @@ class PopularServiceCard extends StatelessWidget {
                         popularService.description!,
                         maxLines: 3,
                         style: TextStyle(
+                          fontFamily: "workSans",
                           color: Colors.grey[800],
                           fontSize: 14,
                         ),
@@ -112,16 +115,16 @@ class PopularServiceCard extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        const Text("From "),
+                        const Text("From ",style: TextStyle(fontFamily: "workSans",),),
                         Text(
                           "\$",
                           style:
-                              TextStyle(fontSize: 16, color: Colors.blueGrey[850]),
+                              TextStyle(fontFamily: "workSans",fontSize: 16, color: Colors.blueGrey[850]),
                         ),
                         Text(
                           "79",
                           style:
-                              TextStyle(fontSize: 16, color: Colors.blueGrey[850]),
+                              TextStyle(fontFamily: "workSans",fontSize: 16, color: Colors.blueGrey[850]),
                         )
                       ],
                     ),

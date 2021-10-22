@@ -18,7 +18,7 @@ class _MessageScreenState extends State<MessageScreen> {
         shadowColor: Colors.grey[400],
         title: Text(
           "Inbox",
-          style: TextStyle(fontSize: 20, color: Colors.grey[700]),
+          style: TextStyle(fontFamily: "workSans",fontSize: 18, color: Colors.grey[700]),
         ),
         actions: const [
           Icon(

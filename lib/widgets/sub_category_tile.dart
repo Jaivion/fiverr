@@ -27,9 +27,11 @@ class SubCategoryTile extends StatelessWidget {
                   Text(
                     categories.title!, //textdata
                     style: TextStyle(
-                      fontFamily: "Futura",
+                      fontFamily: "workSans",
+                      //fontFamily: "Futura",
                       fontSize: 16,
                       color: Colors.grey[850],
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   const Spacer(),
@@ -42,10 +44,10 @@ class SubCategoryTile extends StatelessWidget {
               ),
             ),
           ),
-          Center(
-            child: Container(
-                height: 1, width: size.width, color: Colors.grey[400]),
-          ),
+          // Center(
+          //   child: Container(
+          //       height: 1, width: size.width, color: Colors.grey[400]),
+          // ),
         ],
       ),
 
