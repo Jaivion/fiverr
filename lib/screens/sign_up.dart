@@ -23,7 +23,7 @@ class _SignUpState extends State<SignUp> {
           title: const Text("Sign up",style: TextStyle(fontSize: 18,fontFamily: "workSans",color: Colors.black87),),
           backgroundColor: const Color(0xffffffff),
       ),
-      body: const SignupHelper(),
+      body: const SignupHelper(), 
     );
   }
 }

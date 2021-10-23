@@ -1,12 +1,18 @@
 import 'package:fiverr/screens/sign_in.dart';
 import 'package:fiverr/screens/sign_up.dart';
+import 'package:fiverr/screens/signup_with_email.dart';
 import 'package:fiverr/screens/term_of_services.dart';
 import 'package:fiverr/utils/custom_page_route.dart';
 import 'package:flutter/material.dart';
 
-class SignupHelper extends StatelessWidget {
+class SignupHelper extends StatefulWidget {
   const SignupHelper({Key? key}) : super(key: key);
 
+  @override
+  State<SignupHelper> createState() => _SignupHelperState();
+}
+
+class _SignupHelperState extends State<SignupHelper> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -95,7 +101,11 @@ class SignupHelper extends StatelessWidget {
             borderRadius: BorderRadius.circular(4),
             color: const Color(0xff1dbf73),
             child: InkWell(
-              onTap: () => {},
+              onTap: () {
+                Navigator.of(context).push(
+                  CustomPageRoute(child: const SignUpWithEmail()),
+                );
+              },
               child: Container(
                 height: 40,
                 width: double.maxFinite,

@@ -116,41 +116,43 @@ class _CardScreenState extends State<CardScreen> {
                 //         ),
                 //       ]),
                 // ),
-                const CHoiceChips(),
-                Container(
-                  height: 140,
-                  color: Colors.transparent,
-                  //padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    //physics: const NeverScrollableScrollPhysics(),
-                    itemCount: featuredServicesList.length,
-                    itemBuilder: (context, index) {
-                      MarketPlaceModel featuredServices =
-                          featuredServicesList[index];
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          height: 120,
-                          width: 130,
-                          decoration: const BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            boxShadow: <BoxShadow>[
-                              BoxShadow(
-                                color: Colors.black26,
-                                offset: Offset(1.0, 1.0),
-                                blurRadius: 2.0,
-                              ),
-                            ],
-                          ),
-                          child: const Center(child: Text("filter")),
-                        ),
-                      );
-                    },
-                  ),
-                ), 
+                const CHoiceChips(), 
+                // Container(
+                //   height: 140,
+                //   color: Colors.transparent,
+                //   //padding: const EdgeInsets.symmetric(horizontal: 10),
+                //   child: ListView.builder(
+                //     scrollDirection: Axis.horizontal,
+                //     //physics: const NeverScrollableScrollPhysics(),
+                //     itemCount: featuredServicesList.length,
+                //     itemBuilder: (context, index) {
+                //       MarketPlaceModel featuredServices =
+                //           featuredServicesList[index];
+                //       return Padding(
+                //         padding: const EdgeInsets.all(8.0),
+                //         child: Container(
+                //           padding: const EdgeInsets.symmetric(horizontal: 10),
+                //           height: 120,
+                //           width: 130,
+                //           decoration: const BoxDecoration(
+                //             color: Colors.white,
+                //             borderRadius: BorderRadius.all(Radius.circular(10)),
+                //             boxShadow: <BoxShadow>[
+                //               BoxShadow(
+                //                 color: Colors.black26,
+                //                 offset: Offset(1.0, 1.0),
+                //                 blurRadius: 2.0,
+                //               ),
+                //             ],
+                //           ),
+                //           child: const Center(child: Text("filter")),
+                //         ),
+                //       );
+                //     },
+                //   ),
+                // ), 
+
+
                 Expanded(
                   child: Container(
                     //height: 200,

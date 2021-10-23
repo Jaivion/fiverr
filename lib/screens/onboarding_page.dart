@@ -43,7 +43,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-
+ 
     return Material(
       child: Container(
         height: size.height,

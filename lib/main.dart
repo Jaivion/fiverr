@@ -3,7 +3,9 @@ import 'package:fiverr/screens/bottomnav.dart';
 import 'package:fiverr/screens/onboarding_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,14 +40,59 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+  String? email;
+  startTime() {
+    Timer(
+      const Duration(milliseconds: 1500),
+      () {
+        if (email == null) {
+          Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const OnboardingPage()));
+          // Get.to(
+          //     // SigninWithPhonePage()
+          //     const OnboardingPage()
+          //     //SignInWithSocialMediaPage()
+          //     );
+        } else {
+           Navigator.pushReplacement(context,
+              MaterialPageRoute(builder: (context) => const BottomNav()));
+          // Get.to(
+          //   const BottomNav(),
+          // );
+        }
+        // Get.to(
+        //     //SigninWithPhonePage()
+        //     SignInWithEmailPage()
+        //     //SignInWithSocialMediaPage()
+        // );
+        // Get.offAll(
+        //  OnBoardingPage(),
+        //  //SignInWithEmailPage(),
+        // );
+      },
+    );
+  }
+
   @override
   void initState() {
     super.initState();
-    Timer(
-        const Duration(seconds: 3),
-        () => Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const OnboardingPage())));
+    _get_session();
+    startTime();
   }
+
+  Future<void> _get_session() async {
+    final prefs = await SharedPreferences.getInstance();
+    email = prefs.getString('email');
+  }
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   Timer(
+  //       const Duration(seconds: 3),
+  //       () => Navigator.pushReplacement(context,
+  //           MaterialPageRoute(builder: (context) => const OnboardingPage())));
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +133,7 @@ class _SplashState extends State<Splash> {
                         fontFamily: "workSans",
                         color: Colors.grey[850],
                         fontWeight: FontWeight.bold),
-                  ), 
+                  ),
                   // TextStyle(
                   //     fontSize: 60,
                   //     color: Colors.grey[850],

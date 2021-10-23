@@ -1,9 +1,82 @@
+import 'dart:convert';
+
+import 'package:fiverr/screens/bottomnav.dart';
 import 'package:fiverr/screens/forgot_password.dart';
 import 'package:fiverr/utils/custom_page_route.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
 
-class SigninHelper extends StatelessWidget {
+class SigninHelper extends StatefulWidget {
   const SigninHelper({Key? key}) : super(key: key);
+
+  @override
+  State<SigninHelper> createState() => _SigninHelperState();
+}
+
+class _SigninHelperState extends State<SigninHelper> {
+  bool visible = false;
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  Future userLogin() async {
+    final prefs = await SharedPreferences.getInstance();
+    // Showing CircularProgressIndicator.
+    setState(() {
+      visible = true;
+    });
+
+    // Getting value from Controller
+    String email = emailController.text;
+    String password = passwordController.text;
+    print(email);
+
+    var response = await http.post(
+      Uri.parse('https://easemysalon.info/flutter_api/user/new_user_login'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'email': email,
+        'password': password,
+      }),
+    );
+    //var response = await http.post(url, body: json.encode(data[email]));
+
+    // Getting Server response into variable.
+    var data = jsonDecode(response.body);
+    print(data);
+
+    // If the Response Message is Matched.
+    if (data['ResponseCode'] == '200') {
+      var responseBody = data['user'];
+      print(responseBody);
+      prefs.setString('email', responseBody['email']);
+      prefs.setString('name', responseBody['name']);
+      prefs.setString('id', responseBody['id']);
+      // Hiding the CircularProgressIndicator.
+      setState(() {
+        visible = false;
+      });
+      // Get.to(BottomNavigationBarPage());
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const BottomNav()));
+      print('Logged in successfully.');
+      // Get.offAll(
+      //   const BottomNav(),
+      // );
+
+      // Navigate to Home & Sending Email to Next Screen.
+      //Navigator.pushNamed(context, '/HomePage');
+    } else {
+      // If Email or Password did not Matched.
+      // Hiding the CircularProgressIndicator.
+      setState(() {
+        visible = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +94,9 @@ class SigninHelper extends StatelessWidget {
               children: [
                 //const Spacer(),
                 //Expanded(child: Container()),
-                const SizedBox(height: 230,),
+                const SizedBox(
+                  height: 230,
+                ),
                 const Image(
                     height: 60, image: AssetImage('assets/icons/Favicon.png')),
                 const SizedBox(
@@ -119,13 +194,15 @@ class SigninHelper extends StatelessWidget {
                   height: 20,
                 ),
                 TextFormField(
+                  controller: emailController,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: const InputDecoration(
                     labelText: "Email or username",
                     labelStyle: TextStyle(
                       fontFamily: "workSans",
                     ),
                     fillColor: Colors.green,
-              
+
                     //labelStyle: TextStyle(fontSize: 20, color: Colors.green),
                     focusColor: Colors.green,
                     focusedBorder: UnderlineInputBorder(
@@ -138,17 +215,22 @@ class SigninHelper extends StatelessWidget {
                   height: 20,
                 ),
                 TextFormField(
+                  controller: passwordController,
                   obscureText: true,
                   decoration: const InputDecoration(
-                      //filled: true,
                       fillColor: Colors.green,
                       label: Text("Password"),
                       labelStyle: TextStyle(
                         fontFamily: "workSans",
                       ),
-                      //labelText: 'Your',
-                      //labelStyle: TextStyle(fontSize: 20),
-                      //isCollapsed: true,
+                      // suffixIcon: IconButton(
+                      //         icon: Icon(signInProv.obscureText
+                      //             ? FlutterIcons.visibility_off_mdi
+                      //             : FlutterIcons.visibility_mdi),
+                      //         onPressed: () {
+                      //           signInProv.changeObscureText();
+                      //         },
+                      //       ),
                       focusColor: Colors.green,
                       focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.green)),
@@ -162,7 +244,7 @@ class SigninHelper extends StatelessWidget {
                   borderRadius: BorderRadius.circular(4),
                   color: const Color(0xff1dbf73),
                   child: InkWell(
-                    onTap: () => {},
+                    onTap: () => userLogin(),
                     child: Container(
                       height: 40,
                       width: double.maxFinite,
@@ -187,7 +269,7 @@ class SigninHelper extends StatelessWidget {
                   children: [
                     const Spacer(),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         Navigator.of(context).push(
                           CustomPageRoute(child: const ForgotPassword()),
                         );

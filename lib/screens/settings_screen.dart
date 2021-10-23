@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -8,6 +9,12 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  void logout() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    await preferences.clear();
+    Navigator.pushReplacementNamed(context, '/');
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -22,7 +29,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
         title: const Text(
           "Settings",
-          style: TextStyle(fontSize: 18,fontFamily: "workSans", color: Colors.black87),
+          style: TextStyle(
+              fontSize: 18, fontFamily: "workSans", color: Colors.black87),
         ),
         backgroundColor: const Color(0xffffffff),
       ),
@@ -108,11 +116,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
               thickness: 1,
               indent: 10,
             ),
-            ListTile(
-              title: Text(
-                "Logout",
-                style:
-                    TextStyle(fontFamily: "workSans", color: Colors.red[300]),
+            Material(
+              child: InkWell(
+                onTap: () => logout(),
+                child: ListTile(
+                  title: Text(
+                    "Logout",
+                    style: TextStyle(
+                        fontFamily: "workSans", color: Colors.red[300]),
+                  ),
+                ),
               ),
             ),
             const Divider(
