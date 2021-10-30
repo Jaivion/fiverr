@@ -46,7 +46,7 @@ void _showSearchSheet(BuildContext ctx, int index) {
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.white,
-            elevation: 3.0,
+            elevation: 1.0,
             shadowColor: Colors.grey[400],
             title: Text(
               "Categories",

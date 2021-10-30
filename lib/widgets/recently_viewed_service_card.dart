@@ -5,17 +5,18 @@ import 'package:fiverr/screens/insideHomeScreenCard.dart/service_screen.dart';
 import 'package:fiverr/utils/custom_page_route.dart';
 import 'package:flutter/material.dart';
 
-class PopularServiceCard extends StatefulWidget {
+class RecentlyViewedServiceCard extends StatefulWidget {
   //final PopularServicesModel popularService;
   final CategoryModel category;
-  const PopularServiceCard({Key? key, required this.category})
+  const RecentlyViewedServiceCard({Key? key, required this.category})
       : super(key: key);
 
   @override
-  State<PopularServiceCard> createState() => _PopularServiceCardState();
+  State<RecentlyViewedServiceCard> createState() =>
+      _RecentlyViewedServiceCardState();
 }
 
-class _PopularServiceCardState extends State<PopularServiceCard> {
+class _RecentlyViewedServiceCardState extends State<RecentlyViewedServiceCard> {
   @override
   Widget build(BuildContext context) {
     //var category;
@@ -43,7 +44,7 @@ class _PopularServiceCardState extends State<PopularServiceCard> {
           ),
           child: Container(
             height: 250,
-            width: 170,
+            width: 110,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               boxShadow: const <BoxShadow>[
@@ -58,11 +59,11 @@ class _PopularServiceCardState extends State<PopularServiceCard> {
             child: Column(
               children: [
                 Container(
-                  height: 150,
-                  width: 170,
+                  height: 100,
+                  width: 110,
                   child: CachedNetworkImage(
-                    width: 160,
-                    height: 160,
+                    width: 100,
+                    height: 100,
                     fit: BoxFit.cover,
                     imageUrl: widget.category.icon,
                     imageBuilder: (context, imageProvider) => Container(
@@ -80,7 +81,7 @@ class _PopularServiceCardState extends State<PopularServiceCard> {
                                 value: downloadProgress.progress),
                     errorWidget: (context, url, error) => const Icon(
                       Icons.error,
-                      size: 100,
+                      size: 50,
                       color: Colors.red,
                     ),
                   ),
@@ -97,19 +98,20 @@ class _PopularServiceCardState extends State<PopularServiceCard> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                      const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
                   child: Row(
                     children: [
                       Icon(
                         Icons.star,
                         color: Colors.orange[300],
-                        size: 16,
+                        size: 14,
                       ),
                       Text(
                         " 4.9 ",
                         style: TextStyle(
                           fontFamily: "workSans",
                           color: Colors.orange[300],
+                          fontSize: 12,
                         ),
                       ),
                       Text(
@@ -117,32 +119,34 @@ class _PopularServiceCardState extends State<PopularServiceCard> {
                         style: TextStyle(
                           fontFamily: "workSans",
                           color: Colors.grey[350],
+                          fontSize: 12,
                         ),
                       ),
                       const Spacer(),
                       Icon(
                         Icons.favorite_border_outlined,
                         color: Colors.grey[350],
+                        size: 16,
                       )
                     ],
                   ),
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.category.label,
-                        maxLines: 3,
-                        style: TextStyle(
-                          fontFamily: "workSans",
-                          color: Colors.grey[800],
-                          fontSize: 14,
-                        ),
+                      const EdgeInsets.symmetric(horizontal: 5, vertical: 0),
+                  child: Container(
+                    width: 90,
+                    child: Text(
+                      widget.category.label,
+                      softWrap: true,
+                      textAlign: TextAlign.start,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontFamily: "workSans",
+                        color: Colors.grey[800],
+                        fontSize: 12,
                       ),
-                    ],
+                    ),
                   ),
                 ),
                 Expanded(
@@ -157,20 +161,21 @@ class _PopularServiceCardState extends State<PopularServiceCard> {
                           "From ",
                           style: TextStyle(
                             fontFamily: "workSans",
+                            fontSize: 12,
                           ),
                         ),
                         Text(
                           "\$",
                           style: TextStyle(
                               fontFamily: "workSans",
-                              fontSize: 16,
+                              fontSize: 12,
                               color: Colors.blueGrey[850]),
                         ),
                         Text(
                           "79",
                           style: TextStyle(
                               fontFamily: "workSans",
-                              fontSize: 16,
+                              fontSize: 12,
                               color: Colors.blueGrey[850]),
                         )
                       ],

@@ -87,6 +87,7 @@ class _SupportState extends State<Support> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 1,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {

@@ -1,13 +1,16 @@
 import 'dart:async';
-
 import 'package:fiverr/helpers/search_bottom_sheet.dart';
+import 'package:fiverr/models/category_model.dart';
 import 'package:fiverr/models/market_place_model.dart';
 import 'package:fiverr/models/popular_services_model.dart';
+import 'package:fiverr/providers/category_provider.dart';
 import 'package:fiverr/widgets/market_place_card.dart';
 import 'package:fiverr/widgets/popular_service_card.dart';
+import 'package:fiverr/widgets/recently_viewed_service_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,11 +20,33 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  String? email;
+  String? name;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserEmail();
+  }
+
+  Future getUserEmail() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      email = prefs.getString('email');
+      name = prefs.getString('name');
+      if (email != null) {
+        isLoggedIn = true;
+      } else {
+        isLoggedIn = false;
+      }
+    });
+  }
+
   bool isSwitched = false;
   bool isLoginSwitched = false;
   var textValue = 'Switch is OFF';
   bool isLoggedIn = false;
-  String name = "User Name";
+  //String name = "User Name";
   void toggleLoginSwitch(bool value) {
     if (isLoginSwitched == false) {
       setState(() {
@@ -121,58 +146,15 @@ class _HomeScreenState extends State<HomeScreen> {
     // bool isLoggedIn = false;
     // bool isLoginSwitched = false;
     return Scaffold(
-      extendBodyBehindAppBar: false,
+      //extendBodyBehindAppBar: false,
       //extendBody: true,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 1.0,
         shadowColor: Colors.grey[400],
-        title: RichText(
-            text: TextSpan(children: <TextSpan>[
-          TextSpan(
-            text: "fiverr",
-            style: GoogleFonts.lato(
-              textStyle: const TextStyle(
-                  fontSize: 35,
-                  fontFamily: "workSans",
-                  color: Colors.black87,
-                  fontWeight: FontWeight.bold),
-            ),
-            // style: TextStyle(
-            //     fontSize: 30,
-            //     fontFamily: "workSans",
-            //     //fontFamily: "Ludo",
-            //     fontWeight: FontWeight.bold,
-            //     color: Colors.black87),
-          ),
-          const TextSpan(
-            text: ".",
-            style: TextStyle(
-                fontSize: 30,
-                fontFamily: "workSans",
-                //fontFamily: "Ludo",
-                fontWeight: FontWeight.bold,
-                color: Colors.green),
-          ),
-        ])),
-        // const Text(
-        //   "fiverr.",
-        // style: TextStyle(
-        //     fontSize: 30,
-        //     fontFamily: "workSans",
-        //     //fontFamily: "Ludo",
-        //     fontWeight: FontWeight.bold,
-        //     color: Colors.black87),
-        // ),
+        titleSpacing: 0.0,
+        title: Image.asset('assets/icons/fusionblack.png'),
         actions: [
-          Switch(
-            onChanged: toggleLoginSwitch,
-            value: isLoginSwitched,
-            activeColor: Colors.lightGreen[800],
-            activeTrackColor: Colors.lightGreen[400],
-            inactiveThumbColor: Colors.grey[500],
-            inactiveTrackColor: Colors.grey[300],
-          ),
           InkWell(
             onTap: () {
               //BottomNav.setIndex(2);
@@ -233,34 +215,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ],
                             ),
-                            //                         child: TextField(
-                            //                           //style: theme.textTheme.bodyText1,
-                            //                           keyboardType: TextInputType.text,
-                            //                           autofocus: false,
-                            //                           autocorrect: false,
-                            //                           decoration: InputDecoration(
-                            //                             //fillColor: theme.accentColor,
-                            //                             border: InputBorder.none,
-                            //                             enabledBorder: InputBorder.none,
-                            //                             focusedBorder: InputBorder.none,
-                            //                             hintText: 'Search services',
-                            //                             //hintStyle: theme.textTheme.subtitle2,
-                            //                             prefixIcon: IconButton(
-                            //                               icon: const Icon(
-                            //                                 Icons.search,
-                            //                                 size: 20,
-                            //                               ),
-                            //                               onPressed: () {
-                            //                                 //showSearch(context: context, delegate: SearchPage());
-                            //                               },
-                            //                             ),
-                            // //                            focusColor: kBackgroundColor2,
-                            //                             contentPadding: const EdgeInsets.symmetric(
-                            //                               horizontal: 20.0,
-                            //                               vertical: 15.0,
-                            //                             ),
-                            //                           ),
-                            //                         ),
                           ),
                         ),
                       ),
@@ -277,7 +231,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Row(
                               children: [
                                 Text(
-                                  "Explore the Marketplace",
+                                  "Explore Service Providers",
                                   style: TextStyle(
                                     fontFamily: "workSans",
                                     color: Colors.grey[850],
@@ -302,27 +256,49 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             height: 5,
                           ),
-                          Container(
-                            child: Column(
-                              children: [
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                Container(
-                                  height: 200,
-                                  child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: featuredServicesList.length,
-                                    itemBuilder: (context, index) {
-                                      MarketPlaceModel featuredServices =
-                                          featuredServicesList[index];
-                                      return MarketPlaceCard(
-                                        featuredService: featuredServices,
-                                      );
-                                    },
+                          Padding(
+                            padding: const EdgeInsets.only(left: 15),
+                            child: Container(
+                              child: Column(
+                                children: [
+                                  const SizedBox(
+                                    height: 10,
                                   ),
-                                )
-                              ],
+                                  Container(
+                                    height: 130,
+                                    child: ChangeNotifierProvider(
+                                      create: (context) => CategoryProvider(),
+                                      child: Builder(builder: (context) {
+                                        final model =
+                                            Provider.of<CategoryProvider>(
+                                                context);
+                                        final services = model.categories;
+                                        print(
+                                            "categorirs length ${services.length}  ");
+                                        return ListView.builder(
+                                          // scrollDirection: Axis.horizontal,
+                                          // itemCount: featuredServicesList.length,
+                                          // itemBuilder: (context, index) {
+                                          //   MarketPlaceModel featuredServices =
+                                          //       featuredServicesList[index];
+                                          //   return MarketPlaceCard(
+                                          //     featuredService: featuredServices,
+                                          //   );
+                                          // },
+                                          scrollDirection: Axis.horizontal,
+                                          itemCount: services.length,
+                                          itemBuilder: (context, index) {
+                                            CategoryModel categories =
+                                                services[index];
+                                            return MarketPlaceCard(
+                                                category: categories);
+                                          },
+                                        );
+                                      }),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -340,7 +316,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Row(
                               children: [
                                 Text(
-                                  "Popular Services",
+                                  "Explore Services",
                                   style: TextStyle(
                                     fontFamily: "workSans",
                                     color: Colors.grey[850],
@@ -372,17 +348,43 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 Container(
                                   height: 260,
-                                  child: ListView.builder(
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: popularServicesList.length,
-                                    itemBuilder: (context, index) {
-                                      PopularServicesModel popularServiceList =
-                                          popularServicesList[index];
-                                      return PopularServiceCard(
-                                          popularService: popularServiceList);
-                                    },
+                                  child: ChangeNotifierProvider(
+                                    create: (context) => CategoryProvider(),
+                                    child: Builder(builder: (context) {
+                                      final model =
+                                          Provider.of<CategoryProvider>(
+                                              context);
+                                      final services = model.categories;
+                                      print(
+                                          "categorirs length ${services.length}  ");
+                                      return ListView.builder(
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount: services.length,
+                                        itemBuilder: (context, index) {
+                                          CategoryModel category =
+                                              services[index];
+                                          return PopularServiceCard(
+                                            category: category,
+                                          );
+                                        },
+                                      );
+                                    }),
                                   ),
                                 )
+
+                                // Container(
+                                //   height: 260,
+                                //   child: ListView.builder(
+                                //     scrollDirection: Axis.horizontal,
+                                //     itemCount: popularServicesList.length,
+                                //     itemBuilder: (context, index) {
+                                //       PopularServicesModel popularServiceList =
+                                //           popularServicesList[index];
+                                //       return PopularServiceCard(
+                                //           popularService: popularServiceList);
+                                //     },
+                                //   ),
+                                // )
                               ],
                             ),
                           ),
@@ -513,19 +515,45 @@ class _HomeScreenState extends State<HomeScreen> {
                                     height: 5,
                                   ),
                                   Container(
-                                    height: 260,
-                                    child: ListView.builder(
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount: popularServicesList.length,
-                                      itemBuilder: (context, index) {
-                                        PopularServicesModel
-                                            popularServiceList =
-                                            popularServicesList[index];
-                                        return PopularServiceCard(
-                                            popularService: popularServiceList);
-                                      },
+                                    height: 170,
+                                    //padding: const EdgeInsets.only(left: 25),
+                                    child: ChangeNotifierProvider(
+                                      create: (context) => CategoryProvider(),
+                                      child: Builder(builder: (context) {
+                                        final model =
+                                            Provider.of<CategoryProvider>(
+                                                context);
+                                        final services = model.categories;
+                                        print(
+                                            "categorirs length ${services.length}  ");
+                                        return ListView.builder(
+                                          scrollDirection: Axis.horizontal,
+                                          itemCount: services.length,
+                                          itemBuilder: (context, index) {
+                                            CategoryModel category =
+                                                services[index];
+                                            return RecentlyViewedServiceCard(
+                                              category: category,
+                                            );
+                                          },
+                                        );
+                                      }),
                                     ),
                                   )
+                                  // Container(
+                                  //   height: 260,
+                                  //   child: ListView.builder(
+                                  //     scrollDirection: Axis.horizontal,
+                                  //     itemCount: popularServicesList.length,
+                                  //     itemBuilder: (context, index) {
+                                  //       PopularServicesModel
+                                  //           popularServiceList =
+                                  //           popularServicesList[index];
+                                  //       return PopularServiceCard(
+                                  //           category,: popularServiceList);
+                                  //     },
+                                  //   ),
+                                  // )
                                 ],
                               ),
                             ),

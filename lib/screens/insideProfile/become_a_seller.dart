@@ -12,6 +12,7 @@ class _BecomeSellerState extends State<BecomeSeller> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 1,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {

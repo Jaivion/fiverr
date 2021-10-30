@@ -159,18 +159,18 @@ class _ItemCardState extends State<ItemCard> {
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             children: const [
               Padding(
-                padding: EdgeInsets.all(10.0),
-                child: Icon(Icons.face_outlined,size: 50,),
+                padding: EdgeInsets.all(8.0),
+                child: Icon(Icons.face_outlined,size: 40,),
               ),
               Divider(
                 height: 1,
               ),
               Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(8.0),
                 child: Text("Description"),
               )
             ],

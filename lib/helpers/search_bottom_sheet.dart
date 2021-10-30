@@ -1,6 +1,10 @@
+import 'package:fiverr/models/category_model.dart';
+import 'package:fiverr/models/market_place_model.dart';
 import 'package:fiverr/models/popular_services_model.dart';
+import 'package:fiverr/providers/category_provider.dart';
 import 'package:fiverr/widgets/popular_service_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SearchBottomSheet extends StatefulWidget {
   const SearchBottomSheet({Key? key}) : super(key: key);
@@ -109,18 +113,43 @@ class _SearchBottomSheetState extends State<SearchBottomSheet> {
                               height: 10,
                             ),
                             Container(
-                              height: 260,
-                              child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: popularServicesList.length,
-                                itemBuilder: (context, index) {
-                                  PopularServicesModel popularServiceList =
-                                      popularServicesList[index];
-                                  return PopularServiceCard(
-                                      popularService: popularServiceList);
-                                },
-                              ),
-                            )
+                                  height: 260,
+                                  child: ChangeNotifierProvider(
+                                    create: (context) => CategoryProvider(),
+                                    child: Builder(builder: (context) {
+                                      final model =
+                                          Provider.of<CategoryProvider>(
+                                              context);
+                                      final services = model.categories;
+                                      print(
+                                          "categorirs length ${services.length}  ");
+                                      return ListView.builder(
+                                        scrollDirection: Axis.horizontal,
+                                        itemCount: services.length,
+                                        itemBuilder: (context, index) {
+                                          CategoryModel category =
+                                              services[index];
+                                          return PopularServiceCard(
+                                            category: category,
+                                          );
+                                        },
+                                      );
+                                    }),
+                                  ),
+                                )
+                            // Container(
+                            //   height: 260,
+                            //   child: ListView.builder(
+                            //     scrollDirection: Axis.horizontal,
+                            //     itemCount: popularServicesList.length,
+                            //     itemBuilder: (context, index) {
+                            //       PopularServicesModel popularServiceList =
+                            //           popularServicesList[index];
+                            //       return PopularServiceCard(
+                            //           popularService: popularServiceList);
+                            //     },
+                            //   ),
+                            // )
                           ],
                         ),
                       ),

@@ -80,8 +80,8 @@ class _SigninHelperState extends State<SigninHelper> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Container(
+    return Scaffold(
+      body: Container(
         height: double.maxFinite,
         width: double.maxFinite,
         padding: const EdgeInsets.only(left: 10, right: 10),
@@ -97,8 +97,12 @@ class _SigninHelperState extends State<SigninHelper> {
                 const SizedBox(
                   height: 230,
                 ),
-                const Image(
-                    height: 60, image: AssetImage('assets/icons/Favicon.png')),
+                // const Image(
+                //     height: 60, image: AssetImage('assets/icons/Favicon.png')),
+                // Image.asset('assets/icons/fusion_logo.png',
+                // width: 80, height: 80, fit: BoxFit.fill),
+                Image.asset('assets/icons/fusionblack.png',
+                width: 120, height: 50, fit: BoxFit.fill),
                 const SizedBox(
                   height: 10,
                 ),
@@ -114,7 +118,7 @@ class _SigninHelperState extends State<SigninHelper> {
                   height: 10,
                 ),
                 const Text(
-                  'Sign in to Fiverr to pick up exactly where you left off.',
+                  'Sign in to Fusion to pick up exactly where you left off.',
                   //"Join our growing freelance community to offer your professional services, connect with customers, and get paid on Fiverr's trusted platform",
                   softWrap: true,
                   style: TextStyle(

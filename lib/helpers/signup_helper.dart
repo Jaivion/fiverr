@@ -21,13 +21,15 @@ class _SignupHelperState extends State<SignupHelper> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Spacer(),
-          const Image(
-              height: 60, image: AssetImage('assets/icons/Favicon.png')),
+          Image.asset('assets/icons/fusionblack.png',
+              width: 120, height: 50, fit: BoxFit.fill),
+          // const Image(
+          //     height: 60, image: AssetImage('assets/icons/Favicon.png')),
           const SizedBox(
             height: 10,
           ),
           const Text(
-            "Join Fiverr",
+            "Join Fusion",
             style: TextStyle(
                 fontSize: 20,
                 fontFamily: "workSans",
@@ -38,7 +40,7 @@ class _SignupHelperState extends State<SignupHelper> {
             height: 10,
           ),
           const Text(
-            "Join our growing freelance community to offer your professional services, connect with customers, and get paid on Fiverr's trusted platform",
+            "Join our growing freelance community to offer your professional services, connect with customers, and get paid on Fusion's trusted platform",
             softWrap: true,
             style: TextStyle(
               fontSize: 14, fontFamily: "workSans",
@@ -129,7 +131,7 @@ class _SignupHelperState extends State<SignupHelper> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "By joining you agree to Fiverr's ",
+                "By joining you agree to Fusion ",
                 style: TextStyle(
                   fontFamily: "workSans",
                   color: Colors.black54,

@@ -46,6 +46,9 @@ android {
         applicationId "com.example.fiverr"
         minSdkVersion 16
         targetSdkVersion 30
+        multiDexEnabled true
+        //shrinkResources false
+        //minifyEnabled false
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }

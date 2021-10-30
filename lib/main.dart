@@ -1,10 +1,14 @@
 import 'dart:async';
+import 'package:fiverr/helpers/theme.dart';
+import 'package:fiverr/providers/category_provider.dart';
+import 'package:fiverr/providers/theme_provider.dart';
 import 'package:fiverr/screens/bottomnav.dart';
 import 'package:fiverr/screens/onboarding_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -21,14 +25,32 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Fiverr',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const Splash(),
-      debugShowCheckedModeBanner: false,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ChangeNotifierProvider(create: (context) => CategoryProvider()),
+      ],
+      child: Consumer<ThemeProvider>(builder: (context, theme, snapshot) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Fusion',
+          theme: themeData(context),
+          darkTheme: darkThemeData(context),
+          themeMode: theme.isLightTheme ? ThemeMode.light : ThemeMode.dark,
+          transitionDuration: const Duration(milliseconds: 200),
+          defaultTransition: Transition.topLevel,
+          home: const Splash(),
+        );
+      }),
     );
+    // return MaterialApp(
+    //   title: 'Fiverr',
+    //   theme: ThemeData(
+    //     primarySwatch: Colors.blue,
+    //   ),
+    //   home: const Splash(),
+    //   debugShowCheckedModeBanner: false,
+    // );
   }
 }
 
@@ -43,32 +65,15 @@ class _SplashState extends State<Splash> {
   String? email;
   startTime() {
     Timer(
-      const Duration(milliseconds: 1500),
+      const Duration(seconds: 3),
       () {
         if (email == null) {
           Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => const OnboardingPage()));
-          // Get.to(
-          //     // SigninWithPhonePage()
-          //     const OnboardingPage()
-          //     //SignInWithSocialMediaPage()
-          //     );
         } else {
-           Navigator.pushReplacement(context,
+          Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => const BottomNav()));
-          // Get.to(
-          //   const BottomNav(),
-          // );
         }
-        // Get.to(
-        //     //SigninWithPhonePage()
-        //     SignInWithEmailPage()
-        //     //SignInWithSocialMediaPage()
-        // );
-        // Get.offAll(
-        //  OnBoardingPage(),
-        //  //SignInWithEmailPage(),
-        // );
       },
     );
   }
@@ -85,15 +90,6 @@ class _SplashState extends State<Splash> {
     email = prefs.getString('email');
   }
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   Timer(
-  //       const Duration(seconds: 3),
-  //       () => Navigator.pushReplacement(context,
-  //           MaterialPageRoute(builder: (context) => const OnboardingPage())));
-  // }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -101,19 +97,7 @@ class _SplashState extends State<Splash> {
       routes: {
         '/bottomNav': (BuildContext context) => const BottomNav(),
       },
-      // onGenerateRoute: (RouteSettings settings) {
-      //   switch (settings.name) {
-      //     case 'homeScreen':
-      //       return CupertinoPageRoute(
-      //           builder: (_) => const HomeScreen(), settings: settings);
-      //     case 'messageScreen':
-      //       return CupertinoPageRoute(
-      //           builder: (_) => const MessageScreen(), settings: settings);
-      //     case 'cardScreen':
-      //       return CupertinoPageRoute(
-      //           builder: (_) => CardScreen(), settings: settings);
-      //   }
-      // },
+      debugShowCheckedModeBanner: false,
       home: Material(
         child: Container(
           width: double.infinity,
@@ -122,35 +106,10 @@ class _SplashState extends State<Splash> {
             color: Colors.white,
           ),
           child: Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "fiverr",
-                  style: GoogleFonts.lato(
-                    textStyle: TextStyle(
-                        fontSize: 60,
-                        fontFamily: "workSans",
-                        color: Colors.grey[850],
-                        fontWeight: FontWeight.bold),
-                  ),
-                  // TextStyle(
-                  //     fontSize: 60,
-                  //     color: Colors.grey[850],
-                  //     fontWeight: FontWeight.bold)
-                ),
-                Text(
-                  ".",
-                  style: GoogleFonts.lato(
-                    textStyle: TextStyle(
-                        fontSize: 60,
-                        fontFamily: "workSans",
-                        color: Colors.lightGreen[600],
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
+            child: Image.asset('assets/icons/fusionblack.png',
+                width: 180, height: 80, fit: BoxFit.fill),
+            // Image.asset('assets/icons/fusion_logo.png',
+            //     width: 180, height: 200, fit: BoxFit.fill),
           ),
         ),
       ),

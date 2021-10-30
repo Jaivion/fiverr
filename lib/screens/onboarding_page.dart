@@ -2,7 +2,6 @@ import 'package:fiverr/helpers/onboarding_buyer_card.dart';
 import 'package:fiverr/helpers/onboarding_seller_card.dart';
 import 'package:fiverr/helpers/signin_helper.dart';
 import 'package:fiverr/helpers/signup_helper.dart';
-import 'package:fiverr/utils/custom_page_route.dart';
 import 'package:flutter/painting.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fiverr/screens/bottomnav.dart';
@@ -43,7 +42,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
- 
+
     return Material(
       child: Container(
         height: size.height,
@@ -66,10 +65,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
+                      // child: Image.asset('assets/icons/fusion.png',
+                      //     width: 100, height: 40, fit: BoxFit.fill),
                       child: Row(
                         children: [
                           Text(
-                            "fiverr",
+                            "fusion",
                             style: GoogleFonts.lato(
                               textStyle: const TextStyle(
                                   fontSize: 35,
@@ -88,23 +89,23 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           //     fontWeight: FontWeight.bold,
                           //     color: Colors.white),
 
-                          Text(
-                            ".",
-                            style: GoogleFonts.lato(
-                              textStyle: TextStyle(
-                                  fontSize: 35,
-                                  fontFamily: "workSans",
-                                  color: Colors.green[400],
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            // style: GoogleFonts.lato(
-                            //   textStyle: TextStyle(
-                            //       fontSize: 30,
-                            //       fontWeight: FontWeight.bold,
-                            //       fontFamily: "workSans",
-                            //       color: Colors.green[400]),
-                            // )
-                          ),
+                          // Text(
+                          //   ".",
+                          //   style: GoogleFonts.lato(
+                          //     textStyle: TextStyle(
+                          //         fontSize: 35,
+                          //         fontFamily: "workSans",
+                          //         color: Colors.green[400],
+                          //         fontWeight: FontWeight.bold),
+                          //   ),
+                          //   // style: GoogleFonts.lato(
+                          //   //   textStyle: TextStyle(
+                          //   //       fontSize: 30,
+                          //   //       fontWeight: FontWeight.bold,
+                          //   //       fontFamily: "workSans",
+                          //   //       color: Colors.green[400]),
+                          //   // )
+                          // ),
                         ],
                       ),
                     ),
