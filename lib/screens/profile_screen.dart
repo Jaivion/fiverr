@@ -2,6 +2,8 @@ import 'package:fiverr/helpers/app_colors.dart';
 import 'package:fiverr/screens/aboutus.dart';
 import 'package:fiverr/screens/edit_profile_screen.dart';
 import 'package:fiverr/screens/insideProfile/become_a_seller.dart';
+import 'package:fiverr/screens/insideProfile/manage_orders.dart';
+import 'package:fiverr/screens/insideProfile/manage_requests.dart';
 import 'package:fiverr/screens/insideProfile/notification_settings.dart';
 import 'package:fiverr/screens/insideProfile/how_to_book.dart';
 import 'package:fiverr/screens/insideProfile/my_interests.dart';
@@ -117,10 +119,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     void logout() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    await preferences.clear();
-    Navigator.pushReplacementNamed(context, '/');
-  }
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      await preferences.clear();
+      Navigator.pushReplacementNamed(context, '/');
+    }
+
     return Scaffold(
       body: Stack(children: [
         Container(
@@ -128,7 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Column(
             children: [
               Container(
-                height: size.height * 0.22, 
+                height: size.height * 0.22,
                 width: size.width,
                 decoration: BoxDecoration(
                   color: isLoggedIn
@@ -185,60 +188,60 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   const SizedBox(
                                     height: 5,
                                   ),
-                                // if (isLoggedIn)
-                                //   Material(
-                                //     borderRadius: BorderRadius.circular(25),
-                                //     color: Colors.green[700],
-                                //     child: InkWell(
-                                //       onTap: () {
-                                //         Navigator.of(context).push(
-                                //           CustomPageRoute(
-                                //               child: const EditProfileScreen()),
-                                //         );
-                                //       },
-                                //       child: AnimatedContainer(
-                                //         duration: const Duration(seconds: 1),
-                                //         height: 30,
-                                //         width: 100,
-                                //         alignment: Alignment.center,
-                                //         child: const Text(
-                                //           "Edit Profile",
-                                //           style: TextStyle(
-                                //               fontSize: 14,
-                                //               color: Colors.white),
-                                //         ),
-                                //       ),
-                                //     ),
-                                //   )
+                                if (isLoggedIn)
+                                  Material(
+                                    borderRadius: BorderRadius.circular(25),
+                                    color: Colors.green[700],
+                                    child: InkWell(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                          CustomPageRoute(
+                                              child: const EditProfileScreen()),
+                                        );
+                                      },
+                                      child: AnimatedContainer(
+                                        duration: const Duration(seconds: 1),
+                                        height: 30,
+                                        width: 100,
+                                        alignment: Alignment.center,
+                                        child: const Text(
+                                          "Edit Profile",
+                                          style: TextStyle(
+                                              fontSize: 14,
+                                              color: Colors.white),
+                                        ),
+                                      ),
+                                    ),
+                                  )
                               ],
                             ),
                             const Spacer(),
 
-                            // isLoggedIn
-                            //     ? InkWell(
-                            //         // onTap: () {
-                            //         //   Navigator.push(
-                            //         //     context,
-                            //         //     MaterialPageRoute(
-                            //         //         builder: (context) =>
-                            //         //             const SettingsScreen()),
-                            //         //   );
-                            //         // },
-                            //         onTap: () {
-                            //           Navigator.of(context).push(
-                            //             CustomPageRoute(
-                            //                 child: const SettingsScreen()),
-                            //           );
-                            //         },
-                            //         child: Icon(
-                            //           Icons.settings_outlined,
-                            //           size: 40,
-                            //           color: Colors.blueGrey[400],
-                            //         ),
-                            //       )
-                            //     : const SizedBox(
-                            //         width: 5,
-                            //       ),
+                            isLoggedIn
+                                ? InkWell(
+                                    // onTap: () {
+                                    //   Navigator.push(
+                                    //     context,
+                                    //     MaterialPageRoute(
+                                    //         builder: (context) =>
+                                    //             const SettingsScreen()),
+                                    //   );
+                                    // },
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                        CustomPageRoute(
+                                            child: const SettingsScreen()),
+                                      );
+                                    },
+                                    child: Icon(
+                                      Icons.settings_outlined,
+                                      size: 40,
+                                      color: Colors.blueGrey[400],
+                                    ),
+                                  )
+                                : const SizedBox(
+                                    width: 5,
+                                  ),
 
                             // Switch(
                             //   onChanged: toggleLoginSwitch,
@@ -278,6 +281,55 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
+                            // Material(
+                            //   child: InkWell(
+                            //     splashColor: Colors.grey,
+                            //     // onTap: () {
+                            //     //   Navigator.push(
+                            //     //     context,
+                            //     //     MaterialPageRoute(
+                            //     //         builder: (context) => const SavedGigs()),
+                            //     //   );
+                            //     // },
+                            //     onTap: () {
+                            //       Navigator.of(context).push(
+                            //         CustomPageRoute(child: const PrivacyPolicy()),
+                            //       );
+                            //     },
+                            //     child: const CustomListTile(
+                            //         myicon: Icons.supervisor_account,
+                            //         mytext: "Privacy policy"),
+                            //   ),
+                            // ),
+                            // const Divider(
+                            //   height: 1,
+                            //   indent: 20,
+                            //   endIndent: 20,
+                            //   color: Colors.grey,
+                            // ),
+                            // Material(
+                            //   child: InkWell(
+                            //     splashColor: Colors.grey,
+                            //     // onTap: () {
+                            //     //   Navigator.push(
+                            //     //     context,
+                            //     //     MaterialPageRoute(
+                            //     //         builder: (context) =>
+                            //     //             const MyInterests()),
+                            //     //   );
+                            //     // },
+                            //     onTap: () {
+                            //       Navigator.of(context).push(
+                            //         CustomPageRoute(
+                            //             child: const EditProfileScreen(),
+                            //             direction: AxisDirection.right),
+                            //       );
+                            //     },
+                            //     child: const CustomListTile(
+                            //         myicon: Icons.border_color_outlined,
+                            //         mytext: "Edit Profile"),
+                            //   ),
+                            // ),
                             Material(
                               child: InkWell(
                                 splashColor: Colors.grey,
@@ -290,19 +342,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 // },
                                 onTap: () {
                                   Navigator.of(context).push(
-                                    CustomPageRoute(child: const PrivacyPolicy()),
+                                    CustomPageRoute(child: const SavedGigs()),
                                   );
                                 },
                                 child: const CustomListTile(
-                                    myicon: Icons.supervisor_account,
-                                    mytext: "Privacy policy"),
+                                    myicon: Icons.favorite_border_outlined,
+                                    mytext: "Saved Gigs"),
                               ),
-                            ),
-                            const Divider(
-                              height: 1,
-                              indent: 20,
-                              endIndent: 20,
-                              color: Colors.grey,
                             ),
                             Material(
                               child: InkWell(
@@ -318,36 +364,59 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 onTap: () {
                                   Navigator.of(context).push(
                                     CustomPageRoute(
-                                        child: const EditProfileScreen(),
-                                        direction: AxisDirection.right),
+                                        child: const MyInterests(),
+                                        direction: AxisDirection.down),
                                   );
                                 },
                                 child: const CustomListTile(
-                                    myicon: Icons.border_color_outlined,
-                                    mytext: "Edit Profile"),
+                                    myicon: Icons.inbox_outlined,
+                                    mytext: "My Interests"),
                               ),
                             ),
-                            // Container(
-                            //   padding: const EdgeInsets.symmetric(
-                            //       horizontal: 10, vertical: 15),
-                            //   //height: 60,
-                            //   width: size.width,
-                            //   color: Colors.grey[100],
-                            //   child: Text(
-                            //     "Buying",
-                            //     style: TextStyle(
-                            //         fontFamily: "workSans",
-                            //         fontSize: 20,
-                            //         color: Colors.blueGrey[850],
-                            //         fontWeight: FontWeight.bold),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 15),
+                              //height: 60,
+                              width: size.width,
+                              color: Colors.grey[100],
+                              child: Text(
+                                "Buying",
+                                style: TextStyle(
+                                    fontFamily: "workSans",
+                                    fontSize: 20,
+                                    color: Colors.blueGrey[850],
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            // const Divider(
+                            //   height: 1,
+                            //   indent: 20,
+                            //   endIndent: 20,
+                            //   color: Colors.grey,
+                            // ),
+
+                            // Material(
+                            //   child: InkWell(
+                            //     splashColor: Colors.grey,
+                            //     // onTap: () {
+                            //     //   Navigator.push(
+                            //     //     context,
+                            //     //     MaterialPageRoute(
+                            //     //         builder: (context) =>
+                            //     //             const ManageOrders()),
+                            //     //   );
+                            //     // },
+                            //     onTap: () {
+                            //       Navigator.of(context).push(
+                            //         CustomPageRoute(
+                            //             child: const NotificationSettings()),
+                            //       );
+                            //     },
+                            //     child: const CustomListTile(
+                            //         myicon: Icons.notifications,
+                            //         mytext: "Notification settings"),
                             //   ),
                             // ),
-                            const Divider(
-                              height: 1,
-                              indent: 20,
-                              endIndent: 20,
-                              color: Colors.grey,
-                            ),
                             Material(
                               child: InkWell(
                                 splashColor: Colors.grey,
@@ -362,20 +431,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 onTap: () {
                                   Navigator.of(context).push(
                                     CustomPageRoute(
-                                        child: const NotificationSettings()),
+                                        child: const ManageOrders()),
                                   );
                                 },
                                 child: const CustomListTile(
-                                    myicon: Icons.notifications,
-                                    mytext: "Notification settings"),
+                                    myicon: Icons.assignment_outlined,
+                                    mytext: "Manage orders"),
                               ),
                             ),
-                            const Divider(
-                              height: 1,
-                              indent: 20,
-                              endIndent: 20,
-                              color: Colors.grey,
-                            ),
+                            // const Divider(
+                            //   height: 1,
+                            //   indent: 20,
+                            //   endIndent: 20,
+                            //   color: Colors.grey,
+                            // ),
                             Material(
                               child: InkWell(
                                 splashColor: Colors.grey,
@@ -390,20 +459,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 onTap: () {
                                   Navigator.of(context).push(
                                     CustomPageRoute(
-                                        child: const Support(),
-                                        direction: AxisDirection.right),
+                                        child: const PostRequest(),
+                                        direction: AxisDirection.down),
                                   );
                                 },
-                                child: const CustomListTile(
-                                    myicon: Icons.support_outlined,
-                                    mytext: "Support"),
+                                child: const CustomListTile2(
+                                    myicon: Icons.description_outlined,
+                                    mytext: "Post a request"),
                               ),
-                            ),
-                            const Divider(
-                              height: 1,
-                              indent: 20,
-                              endIndent: 20,
-                              color: Colors.grey,
                             ),
                             Material(
                               child: InkWell(
@@ -419,58 +482,72 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 onTap: () {
                                   Navigator.of(context).push(
                                     CustomPageRoute(
-                                        child: const HowToBook()),
+                                        child: const ManageRequests()),
                                   );
                                 },
                                 child: const CustomListTile(
-                                    myicon: Icons.info,
-                                    mytext: "How to Book"),
+                                    myicon: Icons.border_color_outlined,
+                                    mytext: "Manage requests"),
                               ),
                             ),
-                            const Divider(
-                              height: 1,
-                              indent: 20,
-                              endIndent: 20,
-                              color: Colors.grey,
-                            ),
-                            Material(
-                              child: InkWell(
-                                splashColor: Colors.grey,
-                                // onTap: () {
-                                //   Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) =>
-                                //             const PostRequest()),
-                                //   );
-                                // },
-                                onTap: () => logout(),
-                                child: const CustomListTile(
-                                    myicon: Icons.logout_outlined,
-                                    mytext: "Logout"),
-                              ),
-                            ),
-                            const Divider(
-                              height: 5,
-                              indent: 20,
-                              endIndent: 20,
-                              color: Colors.grey,
-                            ),
-                            // Container(
-                            //   padding: const EdgeInsets.symmetric(
-                            //       horizontal: 10, vertical: 15),
-                            //   //height: 60,
-                            //   width: size.width,
-                            //   color: Colors.grey[100],
-                            //   child: Text(
-                            //     "General",
-                            //     style: TextStyle(
-                            //         fontSize: 20,
-                            //         fontFamily: "workSans",
-                            //         color: Colors.blueGrey[850],
-                            //         fontWeight: FontWeight.bold),
+                            // Material(
+                            //   child: InkWell(
+                            //     splashColor: Colors.grey,
+                            //     // onTap: () {
+                            //     //   Navigator.push(
+                            //     //     context,
+                            //     //     MaterialPageRoute(
+                            //     //         builder: (context) =>
+                            //     //             const PostRequest()),
+                            //     //   );
+                            //     // },
+                            //     onTap: () {
+                            //       Navigator.of(context).push(
+                            //         CustomPageRoute(
+                            //             child: const Support(),
+                            //             direction: AxisDirection.right),
+                            //       );
+                            //     },
+                            //     child: const CustomListTile(
+                            //         myicon: Icons.support_outlined,
+                            //         mytext: "Support"),
                             //   ),
                             // ),
+                            // const Divider(
+                            //   height: 1,
+                            //   indent: 20,
+                            //   endIndent: 20,
+                            //   color: Colors.grey,
+                            // ),
+
+                            // const Divider(
+                            //   height: 1,
+                            //   indent: 20,
+                            //   endIndent: 20,
+                            //   color: Colors.grey,
+                            // ),
+                           
+                            // const Divider(
+                            //   height: 5,
+                            //   indent: 20,
+                            //   endIndent: 20,
+                            //   color: Colors.grey,
+                            // ),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 15),
+                              //height: 60,
+                              width: size.width,
+                              color: Colors.grey[100],
+                              child: Text(
+                                "General",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: "workSans",
+                                    color: Colors.blueGrey[850],
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
                             // Container(
                             //   child: Column(
                             //     children: [
@@ -512,35 +589,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             //     ],
                             //   ),
                             // ),
-                            //         Material(
-                            //           child: InkWell(
-                            //             splashColor: Colors.grey,
-                            //             // onTap: () {
-                            //             //   Navigator.push(
-                            //             //     context,
-                            //             //     MaterialPageRoute(
-                            //             //         builder: (context) => const Payments()),
-                            //             //   );
-                            //             // },
-                            //             onTap: () {
-                            //               Navigator.of(context).push(
-                            //                 CustomPageRoute(child: const Payments()),
-                            //               );
-                            //             },
-                            //             child: const CustomListTile(
-                            //                 myicon: Icons.payment_outlined,
-                            //                 mytext: "payments"),
-                            //           ),
-                            //         ),
-                            //         Material(
-                            //           child: InkWell(
-                            //             splashColor: Colors.grey,
-                            //             onTap: () {},
-                            //             child: const CustomListTile2(
-                            //                 myicon: Icons.supervisor_account,
-                            //                 mytext: "Invite friends"),
-                            //           ),
-                            //         ),
+                            Material(
+                              child: InkWell(
+                                splashColor: Colors.grey,
+                                // onTap: () {
+                                //   Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => const Payments()),
+                                //   );
+                                // },
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    CustomPageRoute(child: const Payments()),
+                                  );
+                                },
+                                child: const CustomListTile(
+                                    myicon: Icons.payment_outlined,
+                                    mytext: "payments"),
+                              ),
+                            ),
+                            Material(
+                              child: InkWell(
+                                splashColor: Colors.grey,
+                                onTap: () {},
+                                child: const CustomListTile2(
+                                    myicon: Icons.supervisor_account,
+                                    mytext: "Invite friends"),
+                              ),
+                            ),
                             //         Material(
                             //           child: InkWell(
                             //             splashColor: Colors.grey,
@@ -563,29 +640,66 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             //                 mytext: "Become a seller"),
                             //           ),
                             //         ),
-                            //         Material(
-                            //           child: InkWell(
-                            //             splashColor: Colors.grey,
-                            //             // onTap: () {
-                            //             //   Navigator.push(
-                            //             //     context,
-                            //             //     MaterialPageRoute(
-                            //             //         builder: (context) => const Support()),
-                            //             //   );
-                            //             // },
-                            //             onTap: () {
-                            //               Navigator.of(context).push(
-                            //                 CustomPageRoute(child: const Support()),
-                            //               );
-                            //             },
-                            //             child: const CustomListTile(
-                            //                 myicon: Icons.support_outlined,
-                            //                 mytext: "Support"),
-                            //           ),
-                            //         ),
-                            //         const SizedBox(
-                            //           height: 50,
-                            //         )
+                            Material(
+                              child: InkWell(
+                                splashColor: Colors.grey,
+                                // onTap: () {
+                                //   Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => const Support()),
+                                //   );
+                                // },
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    CustomPageRoute(child: const Support()),
+                                  );
+                                },
+                                child: const CustomListTile(
+                                    myicon: Icons.support_outlined,
+                                    mytext: "Support"),
+                              ),
+                            ),
+                            Material(
+                              child: InkWell(
+                                splashColor: Colors.grey,
+                                // onTap: () {
+                                //   Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) =>
+                                //             const ManageRequests()),
+                                //   );
+                                // },
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    CustomPageRoute(child: const HowToBook()),
+                                  );
+                                },
+                                child: const CustomListTile(
+                                    myicon: Icons.info, mytext: "How to Book"),
+                              ),
+                            ),
+                            //  Material(
+                            //   child: InkWell(
+                            //     splashColor: Colors.grey,
+                            //     // onTap: () {
+                            //     //   Navigator.push(
+                            //     //     context,
+                            //     //     MaterialPageRoute(
+                            //     //         builder: (context) =>
+                            //     //             const PostRequest()),
+                            //     //   );
+                            //     // },
+                            //     onTap: () => logout(),
+                            //     child: const CustomListTile(
+                            //         myicon: Icons.logout_outlined,
+                            //         mytext: "Logout"),
+                            //   ),
+                            // ),
+                            const SizedBox(
+                              height: 50,
+                            )
                           ],
                         ),
                       ),
@@ -687,29 +801,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     fontWeight: FontWeight.bold),
                               ),
                             ),
-                            // Material(
-                            //   child: InkWell(
-                            //     splashColor: Colors.grey,
-                            //     // onTap: () {
-                            //     //   Navigator.push(
-                            //     //     context,
-                            //     //     MaterialPageRoute(
-                            //     //         builder: (context) =>
-                            //     //             const MyInterests()),
-                            //     //   );
-                            //     // },
-                            //     onTap: () {
-                            //       Navigator.of(context).push(
-                            //         CustomPageRoute(
-                            //             child: const MyInterests(),
-                            //             direction: AxisDirection.down),
-                            //       );
-                            //     },
-                            //     child: const CustomListTile(
-                            //         myicon: Icons.assignment_outlined,
-                            //         mytext: "My interests"),
-                            //   ),
-                            // ),
+                            Material(
+                              child: InkWell(
+                                splashColor: Colors.grey,
+                                // onTap: () {
+                                //   Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) =>
+                                //             const MyInterests()),
+                                //   );
+                                // },
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    CustomPageRoute(
+                                        child: const MyInterests(),
+                                        direction: AxisDirection.down),
+                                  );
+                                },
+                                child: const CustomListTile(
+                                    myicon: Icons.assignment_outlined,
+                                    mytext: "My interests"),
+                              ),
+                            ),
 
                             // Material(
                             //   child: InkWell(
@@ -786,7 +900,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             //       ],
                             //     ),
                             //   ),
-                            // ), 
+                            // ),
 
                             //currency close...............................
                             Material(
@@ -875,6 +989,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     mytext: "Become a seller"),
                               ),
                             ),
+
                             Material(
                               child: InkWell(
                                 splashColor: Colors.grey,
